@@ -1,8 +1,11 @@
 import React from 'react'
-
+import { Container } from 'react-bootstrap'
 function Header() {
   return (
-    <div>Header</div>
+    <Container>
+      <div className=''>
+      </div>
+    </Container>
   )
 }
 
