@@ -2,7 +2,7 @@ import React from 'react'
 
 function Main() {
   return (
-<section className="text-center">
+<section className="text-center ">
   <div className="card mx-4 mx-md-5 shadow-5-strong">
     <div className="card-body py-5 px-md-5">
 
@@ -36,37 +36,9 @@ function Main() {
               <label className="form-label" for="form3Example4">Password</label>
             </div>
 
-            <div className="form-check d-flex justify-content-center mb-4">
-              <input className="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-              <label className="form-check-label" for="form2Example33">
-                Subscribe to our newsletter
-              </label>
-            </div>
-
-            
             <button type="submit" className="btn btn-primary btn-block mb-4">
               Sign up
             </button>
-
-    
-            <div className="text-center">
-              <p>or sign up with:</p>
-              <button type="button" className="btn btn-link btn-floating mx-1">
-                <i className="fab fa-facebook-f"></i>
-              </button>
-
-              <button type="button" className="btn btn-link btn-floating mx-1">
-                <i className="fab fa-google"></i>
-              </button>
-
-              <button type="button" className="btn btn-link btn-floating mx-1">
-                <i className="fab fa-twitter"></i>
-              </button>
-
-              <button type="button" className="btn btn-link btn-floating mx-1">
-                <i className="fab fa-github"></i>
-              </button>
-            </div>
           </form>
         </div>
       </div>
