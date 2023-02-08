@@ -12,8 +12,6 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-
 const theme = createTheme();
 
 export default function SignIn() {
@@ -23,6 +21,7 @@ export default function SignIn() {
     console.log({
       email: data.get('email'),
       password: data.get('password'),
+      name:data.get('Name'),
     });
   };
 
@@ -64,6 +63,15 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+            />
+            <TextField
+            margin='normal'
+            required
+            fullWidth
+            name="Name"
+            label="Name"
+            type="text"
+            autoComplete="current-Name"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
