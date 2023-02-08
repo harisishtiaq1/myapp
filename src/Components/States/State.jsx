@@ -11,7 +11,7 @@ function State() {
     useEffect(()=>{
         setTimeout(()=>{
         setCount((count)=>count+1)
-    },[10000])
+    },[1000])
 })
 useEffect(()=>{
     setCalculation(()=>count1*2)
