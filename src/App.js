@@ -3,6 +3,7 @@ import './App.css';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import Main from './Components/Main/Main';
+import Material from './Components/Material/Material';
 import Signin from './Components/Signin/Signin';
 import State from './Components/States/State';
 function App() {
@@ -12,7 +13,8 @@ function App() {
     <Main/>
     <Footer/> */}
     {/* <Signin/> */}
-    <State/>
+    {/* <State/> */}
+    <Material/>
     </>
   );
 }
