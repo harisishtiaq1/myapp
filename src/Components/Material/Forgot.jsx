@@ -16,10 +16,11 @@ function Forgot() {
         <Grid container spacing={3}>
             <Grid item  xs={12}>
                 <TextField
-                input type="password"
+                type="password"
                 label="Password"
                 required
                 fullWidth
+                color='secondary'
                 id='Password'
                 name='Password'
                 autoComplete='Password'>
@@ -29,7 +30,7 @@ function Forgot() {
                 <TextField
                 label="Password"
                 required
-                input type="password"
+                type="password"
                 fullWidth
                 id='ResetPassword'
                 name='Password'
@@ -45,13 +46,6 @@ function Forgot() {
         variant='contained'>
             Reset Password
         </Button>
-        <Grid container>
-        <Grid item >
-                <Link href="#" variant="body1">
-                  {"Sign In"}
-                </Link>
-        </Grid>
-        </Grid>
         </Box>
         
     </Box>

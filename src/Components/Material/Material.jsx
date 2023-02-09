@@ -5,7 +5,17 @@ import { design } from './Material1';
 import {top} from "./Material1"
 import { Box } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
-function Material() {
+export default function Material() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+      firstName:data.get('firstname'),
+      lastName:data.get("lastname")
+    });
+  };
   const theme=createTheme();
   const nevigate=useNavigate();
 
@@ -21,7 +31,7 @@ function Material() {
           <Typography component="h1" variant='h5'>
             Sign Up
           </Typography>
-        <Box component="form" sx={{mt:3}}
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt:3}}
         >
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
@@ -60,13 +70,13 @@ function Material() {
                   fullWidth
                   id="password"
                   label="Password"
-                  name="Password"
+                  type="password"
+                  name="password"
                   autoComplete="Password"
                 />
               </Grid>
           </Grid>
           <Button
-          onClick={()=>signin()}
           type='submit'
           fullWidth
           variant='contained'
@@ -82,5 +92,3 @@ Sign Up
     
   )
 }
-
-export default Material
