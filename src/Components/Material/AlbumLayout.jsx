@@ -31,7 +31,7 @@ const AlbumLayout = () => {
         align="center"
         color="text.primary"
         gutterBottom>
-   Album Layout
+        Album Layout
         </Typography>
         <Typography
         paragraph
