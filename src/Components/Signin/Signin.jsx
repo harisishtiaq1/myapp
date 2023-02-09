@@ -11,9 +11,9 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { useNavigate } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme();
-
 export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,7 +24,16 @@ export default function SignIn() {
       name:data.get('Name'),
     });
   };
+const nevigate=useNavigate();
 
+const signup=()=>{
+  let path="/signup"
+  nevigate(path)
+}
+const forget=()=>{
+  let path="/forget"
+  nevigate(path)
+}
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -37,9 +46,6 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
@@ -87,12 +93,12 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" onClick={()=>forget()}>
                   Forgot password?
                 </Link>
               </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
+              <Grid item >
+                <Link href="#" variant="body2" onClick={()=>signup()}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

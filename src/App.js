@@ -6,15 +6,20 @@ import Main from './Components/Main/Main';
 import Material from './Components/Material/Material';
 import Signin from './Components/Signin/Signin';
 import State from './Components/States/State';
+import { Routes,Route,BrowserRouter } from 'react-router-dom';
+import Forgot from './Components/Material/Forgot';
 function App() {
   return (
     <>
-    {/* <Header/>
-    <Main/>
-    <Footer/> */}
-    {/* <Signin/> */}
-    {/* <State/> */}
-    <Material/>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' exact={true} element={<Material/>}/>
+      <Route path="/signin" exact={true} element={<Signin/>}/>
+      <Route path='/signup' exact={true} element={<Material/>}/>
+      <Route path="forget" exact={true} element={<Forgot/>}/>
+    </Routes>
+    </BrowserRouter>
+
     </>
   );
 }
