@@ -8,7 +8,8 @@ import State from './Components/States/State';
 import { Routes,Route,BrowserRouter } from 'react-router-dom';
 import Forgot from './Components/Material/Forgot';
 import AlbumLayout from './Components/Material/AlbumLayout';
-import Checkout from './Components/Checkout';
+import Checkout from './Components/Checktout/Checkout';
+
 function App() {
   return (
     <>
