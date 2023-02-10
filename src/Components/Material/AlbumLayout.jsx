@@ -4,6 +4,7 @@ import React from 'react'
 import { size } from './AlbumLayout1';
 import {set} from "./AlbumLayout1"
 import haris from "./img/Image.jpg"
+import {Avatar} from '@mui/material';
 import {CardMedia,CardContent,CardActions} from '@mui/material';
 import { Box } from '@mui/system';
 const AlbumLayout = () => {
@@ -12,13 +13,13 @@ const AlbumLayout = () => {
   return (
 <ThemeProvider theme={theme}>
     <CssBaseline/>
-    <AppBar position='relative'
-    >
+    <AppBar position='relative'>
         <Toolbar>
-            <CameraIcon sx={set}/>
+        <Avatar alt="Remy Sharp" sx={set} src={haris} />
             <Typography variant='h6' color="inherit" noWrap>
                 Album Layout
             </Typography>
+            
         </Toolbar>
     </AppBar>
 <main>
@@ -53,7 +54,6 @@ const AlbumLayout = () => {
         </Container>
     </Box>
     <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
@@ -63,7 +63,6 @@ const AlbumLayout = () => {
                   <CardMedia
                     component="img"
                     sx={{
-                      // 16:9
                       pt: '56.25%',
                     }}
                     img src={haris}
@@ -107,5 +106,4 @@ const AlbumLayout = () => {
 </ThemeProvider>
   )
 }
-
 export default AlbumLayout
