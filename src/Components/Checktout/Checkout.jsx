@@ -12,10 +12,19 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import AddressForm from './AddressForm';
+import PaymentForm from './PaymentForm';
+import Review from './Review';
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 function getStepContent(step) {
+  switch (step) {
+    case 0:
+      return <AddressForm />;
+    default:
+      throw new Error('Unknown step');
+  }
 }
 
 const theme = createTheme();
@@ -30,7 +39,6 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -67,7 +75,7 @@ export default function Checkout() {
                 Thank you for your order.
               </Typography>
               <Typography variant="subtitle1">
-                Your order number is #12234232332. We have emailed your order
+                Your order number is #2001539. We have emailed your order
                 confirmation, and will send you an update when your order has
                 shipped.
               </Typography>
