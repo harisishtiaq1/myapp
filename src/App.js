@@ -7,7 +7,7 @@ import Signin from './Components/Signin/Signin';
 import State from './Components/States/State';
 import { Routes,Route,BrowserRouter } from 'react-router-dom';
 import Forgot from './Components/Material/Forgot';
-import AlbumLayout from './Components/Material/AlbumLayout';
+import AlbumLayout from './Components/Task/AlbumLayout';
 import Checkout from './Components/Checktout/Checkout';
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
       <Route path="forget" exact={true} element={<Forgot/>}/>
     </Routes>
     </BrowserRouter> */}
-    <Checkout/>
+    <AlbumLayout/>
     </>
   );
 }

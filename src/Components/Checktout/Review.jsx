@@ -41,14 +41,25 @@ const details=[
         <Typography variant="h5" component="h1">
             Order Summary
         </Typography>
-        <List>
-            {products.map((products)=>{
-                <ListItem key={products.name}>
-                    <ListItemText primary={products.name} secondary={products.desc}></ListItemText>
-                    <Typography>{products.price}</Typography>
+        <List disablePadding>
+            {products.map((product)=>(
+                <ListItem key={product.name} sx={{py: 1, px: 0 }}>
+                    <ListItemText primary={product.name} secondary={product.desc}></ListItemText>
+                    <Typography>{product.price}</Typography>
                 </ListItem>
-            })}
+            ))}
+            <ListItem sx={{ py: 1, px: 0 }}>
+          <ListItemText primary="Total" />
+          <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+            $34.06
+          </Typography>
+        </ListItem>
         </List>
+        <Grid container spacing={2}>
+            <Typography variant='h5' component="h1" sx={{mt:2}}>
+                Shipping
+            </Typography>
+        </Grid>
     </React.Fragment>
   )
 }
