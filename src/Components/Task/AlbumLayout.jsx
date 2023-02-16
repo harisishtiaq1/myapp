@@ -15,7 +15,7 @@ import Button from '@mui/material/Button';
 import { Link } from '@mui/material';
 import logo from "./download.png"
 
-const navItems = ['Home', 'Layputs', 'Apps','Customization','Features','Document'];
+const navItems = ['Home', 'Layouts', 'Apps','Customization','Features','Document'];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -43,8 +43,6 @@ function DrawerAppBar(props) {
     </Box>
   );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Box sx={{ display:'flex',justifyContent:'space-between' }} >
       <CssBaseline />
@@ -64,7 +62,6 @@ function DrawerAppBar(props) {
       </AppBar>
       <Box component="nav">
         <Drawer
-          container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
