@@ -17,7 +17,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Container, createTheme, Link, ThemeProvider } from '@mui/material';
+import { Container, createTheme, Link, ThemeProvider,Slide } from '@mui/material';
 import logo from "./download.png"
 
 const drawerWidth = 240;
@@ -36,7 +36,7 @@ function AlbumLayout() {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-  
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Link href='/'>
@@ -86,6 +86,7 @@ function AlbumLayout() {
         </Toolbar>
         </Container>
       </AppBar>
+      <Slide direction="down" in={checked} mountOnEnter unmountOnExit>
       <Box component="nav">
         <Drawer
           variant="temporary"
@@ -102,6 +103,7 @@ function AlbumLayout() {
           {drawer}
         </Drawer>
       </Box>
+      </Slide>
     </Box>
     </Container>
     <main>
