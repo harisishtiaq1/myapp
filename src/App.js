@@ -9,7 +9,7 @@ import { Routes,Route,BrowserRouter } from 'react-router-dom';
 import Forgot from './Components/Material/Forgot';
 import AlbumLayout from './Components/Task/AlbumLayout';
 import Checkout from './Components/Checktout/Checkout';
-
+import Trans from "./Components/Effect/Trans"
 function App() {
   return (
     <>
@@ -21,7 +21,7 @@ function App() {
       <Route path="forget" exact={true} element={<Forgot/>}/>
     </Routes>
     </BrowserRouter> */}
-    <AlbumLayout/>
+  <Trans/>
     </>
   );
 }
