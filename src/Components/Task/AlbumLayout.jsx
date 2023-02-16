@@ -114,7 +114,7 @@ function AlbumLayout() {
             pb: 6,
           }}
         >
-            <Container>
+            <Container sx={{ml:12}}>
             <Typography
               component="div"
               variant="h3"
