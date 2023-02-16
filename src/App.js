@@ -21,7 +21,7 @@ function App() {
       <Route path="forget" exact={true} element={<Forgot/>}/>
     </Routes>
     </BrowserRouter> */}
-  <Trans/>
+  <AlbumLayout/>
     </>
   );
 }

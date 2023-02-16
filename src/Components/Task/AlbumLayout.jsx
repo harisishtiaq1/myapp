@@ -17,7 +17,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Container, createTheme, Link, ThemeProvider,Slide } from '@mui/material';
+import { Container, createTheme, Link, ThemeProvider, Slide } from '@mui/material';
 import logo from "./download.png"
 
 const drawerWidth = 240;
@@ -124,12 +124,19 @@ function AlbumLayout() {
             >
               Start a new Project with Crema Mui
             </Typography>
+            <Typography
+                component="div"
+                variant='h5'
+                color='white'
+                sx={{mt:5}}
+                width={500}>
+                    Our creatively crafted products keep you moving faster in this digital space.
+            </Typography>
             </Container>
             </Box>
     </main>
     </ThemeProvider>
   );
 }
-
 
 export default AlbumLayout;
