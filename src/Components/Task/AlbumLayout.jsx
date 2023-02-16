@@ -17,7 +17,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Container, createTheme, Link, ThemeProvider, Slide } from '@mui/material';
+import { Container, createTheme, Link, ThemeProvider, Slide,Avatar } from '@mui/material';
 import logo from "./download.png"
 
 const drawerWidth = 240;
@@ -26,11 +26,11 @@ const navItems = ['Home', 'Layouts', 'Apps','Customization','Features','Document
 function AlbumLayout() {
     const [checked, setChecked] = React.useState(true);
     const handleChange = () => {
-    setChecked((prev) => !prev);
+    setChecked((prev) => prev);
   };
   React.useEffect(()=>{
-    handleChange()
-  })
+    handleChange();
+  },[])
   const [mobileOpen, setMobileOpen] = React.useState(false);
     const theme=createTheme();
   const handleDrawerToggle = () => {
@@ -63,6 +63,8 @@ function AlbumLayout() {
       <CssBaseline />
       <AppBar component="nav">
         <Container>
+        <Slide direction="down" in={checked} style={{transformOrigin:'0 0 0'}}
+    {...(checked ? {timeout:1000}:{})}>
         <Toolbar sx={{ display: 'flex',justifyContent:'space-between' }}>
           <IconButton
             color="inherit"
@@ -84,10 +86,11 @@ function AlbumLayout() {
             ))}
           </Box>
         </Toolbar>
+        </Slide>
         </Container>
       </AppBar>
-      <Slide direction="down" in={checked} mountOnEnter unmountOnExit>
       <Box component="nav">
+        
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -103,7 +106,6 @@ function AlbumLayout() {
           {drawer}
         </Drawer>
       </Box>
-      </Slide>
     </Box>
     </Container>
     <main>
@@ -114,7 +116,10 @@ function AlbumLayout() {
             pb: 6,
           }}
         >
+            <Slide direction="right" in={checked} style={{transformOrigin:'0 0 0'}}
+    {...(checked ? {timeout:1000}:{})}>
             <Container sx={{ml:12}}>
+                
             <Typography
               component="div"
               variant="h3"
@@ -132,7 +137,19 @@ function AlbumLayout() {
                 width={500}>
                     Our creatively crafted products keep you moving faster in this digital space.
             </Typography>
+            <Box sx={{display:'flex'}}>
+            <Avatar sx={{marginLeft:2,mt:2,width: 40, height: 40}}></Avatar>
+            <Avatar sx={{marginLeft:2,mt:2,width: 40, height: 40}}></Avatar>
+            <Avatar sx={{marginLeft:2,mt:2,width: 40, height: 40}}></Avatar>
+            <Avatar sx={{marginLeft:2,mt:2,width: 40, height: 40}}></Avatar>
+            <Avatar sx={{marginLeft:2,mt:2,width: 40, height: 40}}></Avatar>
+            </Box>
+            <Box sx={{mt:2,ml:5}}>
+            <Button variant="contained" sx={{bgcolor:"red",mr:2}}>Live Preview</Button>
+            <Button variant="contained">Docs</Button>
+            </Box>
             </Container>
+            </Slide>
             </Box>
     </main>
     </ThemeProvider>
