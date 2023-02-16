@@ -24,12 +24,19 @@ const drawerWidth = 240;
 const navItems = ['Home', 'Layouts', 'Apps','Customization','Features','Documents'];
 
 function AlbumLayout() {
+    const [checked, setChecked] = React.useState(true);
+    const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
+  React.useEffect(()=>{
+    handleChange()
+  })
   const [mobileOpen, setMobileOpen] = React.useState(false);
     const theme=createTheme();
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-
+  
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Link href='/'>
