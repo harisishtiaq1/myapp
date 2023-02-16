@@ -1,9 +1,15 @@
 import * as React from 'react';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -12,28 +18,28 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Link } from '@mui/material';
+import { Container, createTheme, Link, ThemeProvider } from '@mui/material';
 import logo from "./download.png"
 
-const navItems = ['Home', 'Layouts', 'Apps','Customization','Features','Document'];
+const drawerWidth = 240;
+const navItems = ['Home', 'Layouts', 'Apps','Customization','Features','Documents'];
 
-function DrawerAppBar(props) {
-  const { window } = props;
+function AlbumLayout() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+    const theme=createTheme();
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center',display:'flex',justifyContent:'space-between' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Link href='/'>
-        <Box component='img' alt='logo' src={logo} ></Box>
+        <Box component='img' alt='img' sx={{height:35}} src={logo}></Box>
       </Link>
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item}>
+          <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <ListItemText primary={item} />
             </ListItemButton>
@@ -44,13 +50,26 @@ function DrawerAppBar(props) {
   );
 
   return (
-    <Box sx={{ display:'flex',justifyContent:'space-between' }} >
+    <ThemeProvider theme={theme}>
+    <CssBaseline/>
+    <Container>
+    <Box sx={{ display: 'flex'}}>
       <CssBaseline />
       <AppBar component="nav">
-        <Toolbar>
+        <Container>
+        <Toolbar sx={{ display: 'flex',justifyContent:'space-between' }}>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
           <Link href='/'>
-            <Box component="img" alt='image/logo' src={logo} sx={{height:35,marginRight:3}}></Box>
-          </Link>
+        <Box component='img' alt='img' sx={{height:35}} src={logo}></Box>
+        </Link>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }}>
@@ -59,6 +78,7 @@ function DrawerAppBar(props) {
             ))}
           </Box>
         </Toolbar>
+        </Container>
       </AppBar>
       <Box component="nav">
         <Drawer
@@ -70,15 +90,39 @@ function DrawerAppBar(props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box',},
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >
           {drawer}
         </Drawer>
       </Box>
     </Box>
+    </Container>
+    <main>
+    <Box
+          sx={{
+            bgcolor: '#1976D2',
+            pt: 6,
+            pb: 6,
+          }}
+        >
+            <Container>
+            <Typography
+              component="div"
+              variant="h3"
+              color="white"
+              width={346}
+              sx={{mt:10}}
+            >
+              Start a new Project with Crema Mui
+            </Typography>
+            </Container>
+            </Box>
+    </main>
+    
+    </ThemeProvider>
   );
 }
 
 
-export default DrawerAppBar;
+export default AlbumLayout;
