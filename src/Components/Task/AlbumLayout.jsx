@@ -62,7 +62,7 @@ function AlbumLayout() {
     <Container>
     <Box sx={{ display: 'flex'}}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar component="nav" Wrap>
         <Container>
         <Slide direction="down" in={checked} style={{transformOrigin:'0 0 0'}}
     {...(checked ? {timeout:1000}:{})}>
