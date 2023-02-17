@@ -1,6 +1,9 @@
 import { Box, Button, Container, createTheme, CssBaseline, ThemeProvider, Typography } from '@mui/material'
 import React from 'react'
-
+import background from "./background.svg"
+import documentation from "./documentation.svg"
+import slack from "./slack.svg"
+import github from "./git-hub.svg"
 const Banner = () => {
     const theme=createTheme()
   return (
@@ -17,6 +20,8 @@ const Banner = () => {
         <Container>
         <Box sx={{display:'flex',flexDirection:'row',justifyContent:'space-between',mt:5}}>
           <Box sx={{marginLeft:3}}>
+            <Box component='img' src={background}>
+            </Box>
           <Typography variant='h5' component='h1' sx={{textAlign:'center'}}>
             Documentation
           </Typography>
@@ -28,6 +33,7 @@ const Banner = () => {
           </Button>
           </Box>
           <Box sx={{marginLeft:3}}>
+          <Box component='img' src={background}></Box>
           <Typography variant='h5' component='h1' sx={{ml:15,textAlign:'center'}}>
             GitHub
           </Typography>
@@ -38,7 +44,9 @@ const Banner = () => {
             Join on GitHub
           </Button>
           </Box>
+          
           <Box sx={{marginLeft:3}}>
+          <Box component='img' src={background}></Box>
           <Typography variant='h5' component='h1' sx={{ml:15,textAlign:'center'}}>
             Slack
           </Typography>

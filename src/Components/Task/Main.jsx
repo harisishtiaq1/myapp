@@ -7,9 +7,14 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Container, createTheme, Link, ThemeProvider, Slide,Avatar } from '@mui/material';
+import { Container, createTheme, Link, ThemeProvider, Slide,Avatar, SvgIcon } from '@mui/material';
 import main from "./main.png"
 import Banner from "./Banner"
+import figma from "./figma.svg"
+import next from "./nextjs.svg"
+import javascript from "./js.svg"
+import mui from "./mui-with-bg.svg"
+import typescript from "./ts.svg"
 function AlbumLayout() {
     const theme=createTheme();
     const [checked, setChecked] = React.useState(true);
@@ -52,12 +57,12 @@ function AlbumLayout() {
                 width={500}>
                     Our creatively crafted products keep you moving faster in this digital space.
             </Typography>
-            <Box sx={{display:'flex'}}>
-            <Avatar sx={{marginLeft:2,mt:2,width: 40, height: 40}}></Avatar>
-            <Avatar sx={{marginLeft:2,mt:2,width: 40, height: 40}}></Avatar>
-            <Avatar sx={{marginLeft:2,mt:2,width: 40, height: 40}}></Avatar>
-            <Avatar sx={{marginLeft:2,mt:2,width: 40, height: 40}}></Avatar>
-            <Avatar sx={{marginLeft:2,mt:2,width: 40, height: 40}}></Avatar>
+            <Box sx={{display:'flex',mt:2}}>
+            <Box component="img" src={figma} sx={{mr:2}} />
+            <Box component="img" src={next} sx={{mr:2}}/>
+            <Box component="img" src={javascript} sx={{mr:2}}/>
+            <Box component="img" src={mui}sx={{mr:2}} />
+            <Box component="img" src={typescript} />
             </Box>
             <Box sx={{mt:2,ml:5}}>
             <Button variant="contained" sx={{bgcolor:"red",mr:2}}>Live Preview</Button>
