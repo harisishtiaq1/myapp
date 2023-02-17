@@ -95,7 +95,7 @@ function AlbumLayout() {
     <Container>
     <Box sx={{ display: 'flex'}}>
       <CssBaseline />
-      <AppBar className={classes.appBarTransparent} component="nav" Wrap sx={
+      <AppBar className={classes.appBarTransparent} component="nav" wrap sx={
         {
           position:'fixed',
           background:'transparent',
