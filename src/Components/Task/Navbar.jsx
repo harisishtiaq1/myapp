@@ -17,46 +17,27 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Main from "./Main"
-import { Container, createTheme, Link, ThemeProvider, Slide,Avatar } from '@mui/material';
+import { Container, createTheme, Link, ThemeProvider, Slide,Avatar, Typography } from '@mui/material';
 import logo from "./download.png"
-import {makeStyles} from '@mui/styles';
-const UseStyles=makeStyles(()=>({
-  root:{
-    flexGrow:1
-  },
-  appBarTransparent:{
-    backgroundColor:'rgba(67,129,168,0.5)'
-  },
-  appBarSolid:{
-    backgroundColor:'rgba(67,129,168)'
-  }
-}))
+import transition from "./Transition.png"
+
 const drawerWidth = 240;
 const navItems = ['Home', 'Layouts', 'Apps','Customization','Features','Documents'];
 
 function AlbumLayout() {
-  const classes=UseStyles();
-  const [navBackground,setnavBackground]=React.useState('appBarTransparent')
-
-  const navRef=React.useRef()
-  navRef.current=navBackground
-    
+  const [colorChange, setColorchange] = React.useState(false);
+  const changeNavbarColor = () =>{
+     if(window.scrollY >= 1){
+       setColorchange(true);
+     }
+     else{
+       setColorchange(false);
+     }
+  };
   React.useEffect(()=>{
-    const handleScroll=()=>{
-      const show=window.scrollY >310
-      if(show){
-        setnavBackground('appBarSolid')
-      }else{
-        setnavBackground('appBarTransparent')
-      }
-    }
-    document.addEventListener('scroll',handleScroll)
-    return()=>{
-      document.removeEventListener('scroll',handleScroll)
-    }
-  },[])
-    
-
+    changeNavbarColor();
+    document.addEventListener("scroll",setColorchange)
+  },)
     const [checked, setChecked] = React.useState(true);
     const handleChange = () => {
     setChecked((prev) => prev);
@@ -78,9 +59,23 @@ function AlbumLayout() {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+          <ListItem key={item} disablePadding
+          sx={{
+            color:"red",
+            backgroundColor:"red",
+          }} 
+          >
+            <ListItemButton sx={{ textAlign: 'center' , backgroundColor:"red"}}>
+              <ListItemText primary={item} 
+             />
+             <Typography
+             variant='h1'
+             sx={{
+              backgroundColor:"red"
+             }}
+             >
+             {item}
+             </Typography>
             </ListItemButton>
           </ListItem>
         ))}
@@ -92,14 +87,16 @@ function AlbumLayout() {
     <ThemeProvider theme={theme}>
     <CssBaseline/>
     <Container>
-    <Box sx={{ display: 'flex'}}>
+    <Box sx={{ display: 'flex'}}
+    >
       <CssBaseline />
-      <AppBar className={classes.appBarTransparent} component="nav" Wrap sx={
+      <AppBar component="nav" Wrap sx={
         {
+          position:'absolute',
           position:'fixed',
           background:'transparent',
           boxShadow:'none',
-          position:'absolute'
+          backgroundColor: colorChange ? "#fff" :"transparent"
         }
       }>
         <Container>
@@ -116,7 +113,7 @@ function AlbumLayout() {
             <MenuIcon />
           </IconButton>
           <Link href='/'>
-        <Box component='img' alt='img' sx={{height:35}} src={logo}></Box>
+        <Box component='img' alt='img' sx={{height:35}} src={colorChange? transition : logo}></Box>
         </Link>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
@@ -141,6 +138,7 @@ function AlbumLayout() {
           sx={{
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            backgroundColor: colorChange ? "#fff" :"transparent"
           }}
         >
           {drawer}
