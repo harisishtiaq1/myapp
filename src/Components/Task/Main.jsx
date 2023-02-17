@@ -15,6 +15,13 @@ import next from "./nextjs.svg"
 import javascript from "./js.svg"
 import mui from "./mui-with-bg.svg"
 import typescript from "./ts.svg"
+import backimg from "./backpic.jpeg"
+const styles = {
+  paperContainer: {
+    backgroundImage: `url(${backimg})`,
+    backgroundSize: `cover`,
+  },
+};
 function AlbumLayout() {
     const theme=createTheme();
     const [checked, setChecked] = React.useState(true);
@@ -35,7 +42,8 @@ function AlbumLayout() {
             pb: 6,
             display:'flex'
           }}
-        >
+          style={styles.paperContainer}>
+        
             <Slide direction="right" in={checked} style={{transformOrigin:'0 0 0'}}
     {...(checked ? {timeout:1000}:{})}>
             <Container sx={{ml:12}}>
