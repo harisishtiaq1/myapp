@@ -44,7 +44,7 @@ function AlbumLayout() {
     
   React.useEffect(()=>{
     const handleScroll=()=>{
-      const show=window.scrolly >310
+      const show=window.scrollY >310
       if(show){
         setnavBackground('appBarSolid')
       }else{
