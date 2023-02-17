@@ -7,9 +7,9 @@ import Signin from './Components/Signin/Signin';
 import State from './Components/States/State';
 import { Routes,Route,BrowserRouter } from 'react-router-dom';
 import Forgot from './Components/Material/Forgot';
-import AlbumLayout from './Components/Task/AlbumLayout';
 import Checkout from './Components/Checktout/Checkout';
 import Trans from "./Components/Effect/Trans"
+import Appbar from "./Components/Task/Navbar"
 function App() {
   return (
     <>
@@ -21,8 +21,7 @@ function App() {
       <Route path="forget" exact={true} element={<Forgot/>}/>
     </Routes>
     </BrowserRouter> */}
-  <AlbumLayout/>
-  
+  <Appbar/>
     </>
   );
 }

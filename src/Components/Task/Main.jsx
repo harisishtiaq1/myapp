@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Container, createTheme, Link, ThemeProvider, Slide,Avatar, SvgIcon } from '@mui/material';
+import { Container, createTheme, Link, ThemeProvider, Slide,Avatar, SvgIcon, Grid } from '@mui/material';
 import main from "./main.png"
 import Banner from "./Banner"
 import figma from "./figma.svg"
@@ -47,7 +47,7 @@ function AlbumLayout() {
             <Slide direction="right" in={checked} style={{transformOrigin:'0 0 0'}}
     {...(checked ? {timeout:1000}:{})}>
             <Container sx={{ml:12}}>
-                
+                <Grid xs={12}>
             <Typography
               component="div"
               variant="h3"
@@ -76,11 +76,13 @@ function AlbumLayout() {
             <Button variant="contained" sx={{bgcolor:"red",mr:2}}>Live Preview</Button>
             <Button variant="contained">Docs</Button>
             </Box>
+            </Grid>
             </Container>
             </Slide>
             <Slide direction="up" in={checked} style={{transformOrigin:'0 0 0'}}
-    {...(checked ? {timeout:1000}:{})}>
-            <Box component="img" alt='img' sx={{width:600,height:400,mr:10,mt:5}} src={main}></Box>
+            {...(checked ? {timeout:1000}:{})}>
+              
+            <Grid  xs={12} sm={6}component="img" alt='img' sx={{width:600,height:400,mr:10,mt:5}} src={main}></Grid>
             </Slide>
             </Box>
             

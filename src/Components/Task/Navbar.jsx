@@ -20,11 +20,44 @@ import Button from '@mui/material/Button';
 import Main from "./Main"
 import { Container, createTheme, Link, ThemeProvider, Slide,Avatar } from '@mui/material';
 import logo from "./download.png"
-
+import {makeStyles} from '@mui/styles';
+const UseStyles=makeStyles(()=>({
+  root:{
+    flexGrow:1
+  },
+  appBarTransparent:{
+    backgroundColor:'rgba(67,129,168,0.5)'
+  },
+  appBarSolid:{
+    backgroundColor:'rgba(67,129,168)'
+  }
+}))
 const drawerWidth = 240;
 const navItems = ['Home', 'Layouts', 'Apps','Customization','Features','Documents'];
 
 function AlbumLayout() {
+  const classes=UseStyles();
+  const [navBackground,setnavBackground]=React.useState('appBarTransparent')
+
+  const navRef=React.useRef()
+  navRef.current=navBackground
+    
+  React.useEffect(()=>{
+    const handleScroll=()=>{
+      const show=window.scrolly >310
+      if(show){
+        setnavBackground('appBarSolid')
+      }else{
+        setnavBackground('appBarTransparent')
+      }
+    }
+    document.addEventListener('scroll',handleScroll)
+    return()=>{
+      document.removeEventListener('scroll',handleScroll)
+    }
+  },[])
+    
+
     const [checked, setChecked] = React.useState(true);
     const handleChange = () => {
     setChecked((prev) => prev);
@@ -62,11 +95,10 @@ function AlbumLayout() {
     <Container>
     <Box sx={{ display: 'flex'}}>
       <CssBaseline />
-      <AppBar component="nav" Wrap sx={
+      <AppBar className={classes.appBarTransparent} component="nav" Wrap sx={
         {
-          position:'absolute',
-          background:'transparent',
           position:'fixed',
+          background:'transparent',
           boxShadow:'none'
         }
       }>
