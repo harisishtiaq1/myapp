@@ -109,7 +109,7 @@ function AlbumLayout() {
         </Link>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
+              <Button key={item} sx={{ color: colorChange ? "#212121" :"#fff" }}>
                 {item}
               </Button>
             ))}
