@@ -147,5 +147,4 @@ function AlbumLayout() {
     </ThemeProvider>
   );
 }
-
 export default AlbumLayout;
