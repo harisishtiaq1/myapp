@@ -59,13 +59,8 @@ function AlbumLayout() {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding
-          sx={{
-            color:"red",
-            backgroundColor:"red",
-          }} 
-          >
-            <ListItemButton sx={{ textAlign: 'center' , backgroundColor:"red"}}>
+          <ListItem key={item} disablePadding>
+            <ListItemButton>
               <ListItemText primary={item} 
              />
             </ListItemButton>
@@ -74,7 +69,6 @@ function AlbumLayout() {
       </List>
     </Box>
   );
-
   return (
     <ThemeProvider theme={theme}>
     <CssBaseline/>
@@ -107,9 +101,20 @@ function AlbumLayout() {
           <Link href='/'>
         <Box component='img' alt='img' sx={{height:35}} src={colorChange? transition : logo}></Box>
         </Link>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Box sx={{ display: { xs: 'none', sm: 'block' }}}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: colorChange ? "#212121" :"#fff" }}>
+              <Button key={item} sx={{ my: 2,
+                color: colorChange ? "black" : "white",
+                ":hover": {
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                },
+                ":focus": {
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                },
+                ":active": {
+                  color: colorChange ?  "red" : "rgb(237, 205, 55)" ,
+                },
+                }}>
                 {item}
               </Button>
             ))}
