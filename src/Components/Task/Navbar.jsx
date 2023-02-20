@@ -17,9 +17,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Main from "./Main"
-import { Container, createTheme, Link, ThemeProvider, Slide,Avatar, Typography } from '@mui/material';
-import logo from "./download.png"
-import transition from "./Transition.png"
+import { Container, createTheme, Link, ThemeProvider, Slide} from '@mui/material';
+import logo from "./img/download.png"
+import transition from "./img/Transition.png"
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Layouts', 'Apps','Customization','Features','Documents'];

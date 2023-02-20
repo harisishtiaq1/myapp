@@ -7,15 +7,15 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Container, createTheme, Link, ThemeProvider, Slide,Avatar, SvgIcon, Grid } from '@mui/material';
-import main from "./main.png"
+import { Container, createTheme,  ThemeProvider, Slide, Grid } from '@mui/material';
+import main from "./img/main.png"
 import Banner from "./Banner"
-import figma from "./figma.svg"
-import next from "./nextjs.svg"
-import javascript from "./js.svg"
-import mui from "./mui-with-bg.svg"
-import typescript from "./ts.svg"
-import backimg from "./backpic.jpeg"
+import figma from "./img/figma.svg"
+import next from "./img/nextjs.svg"
+import javascript from "./img/js.svg"
+import mui from "./img/mui-with-bg.svg"
+import typescript from "./img/ts.svg"
+import backimg from "./img/backpic.jpeg"
 const styles = {
   paperContainer: {
     backgroundImage: `url(${backimg})`,

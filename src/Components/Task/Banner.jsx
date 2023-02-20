@@ -1,9 +1,8 @@
 import { Box, Button, Slide,Container, createTheme, CssBaseline, ThemeProvider, Typography } from '@mui/material'
 import React from 'react'
-import background from "./background.svg"
-import documentation from "./documentation.svg"
-import slack from "./slack.svg"
-import github from "./git-hub.svg"
+import documentation from "./img/documentation.svg"
+import slack from "./img/slack.svg"
+import github from "./img/git-hub.svg"
 import Banner2 from './Banner2'
 
 
