@@ -43,7 +43,6 @@ function AlbumLayout() {
             display:'flex'
           }}
           style={styles.paperContainer}>
-        
             <Slide direction="right" in={checked} style={{transformOrigin:'0 0 0'}}
     {...(checked ? {timeout:1000}:{})}>
             <Container sx={{ml:12}}>
@@ -79,7 +78,7 @@ function AlbumLayout() {
             </Grid>
             </Container>
             </Slide>
-            <Slide direction="up" in={checked} style={{transformOrigin:'0 0 0'}}
+            <Slide direction="up" in={checked} container={styles.current} style={{transformOrigin:'0 0 0'}}
             {...(checked ? {timeout:1000}:{})}>
             <Grid  xs={12} sm={6}component="img" alt='img' sx={{width:600,height:400,mr:10,mt:5}} src={main}></Grid>
             </Slide>
