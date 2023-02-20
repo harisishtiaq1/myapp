@@ -68,14 +68,6 @@ function AlbumLayout() {
             <ListItemButton sx={{ textAlign: 'center' , backgroundColor:"red"}}>
               <ListItemText primary={item} 
              />
-             <Typography
-             variant='h1'
-             sx={{
-              backgroundColor:"red"
-             }}
-             >
-             {item}
-             </Typography>
             </ListItemButton>
           </ListItem>
         ))}

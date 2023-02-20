@@ -20,7 +20,7 @@ const Banner = () => {
         <Container>
         <Box sx={{display:'flex',flexDirection:'row',justifyContent:'space-between',mt:5}}>
           <Box sx={{marginLeft:3}}>
-            <Box component='img' src={background}>
+            <Box component='img' src={background} sx={{ml:10}}>
             </Box>
           <Typography variant='h5' component='h1' sx={{textAlign:'center'}}>
             Documentation
@@ -33,7 +33,7 @@ const Banner = () => {
           </Button>
           </Box>
           <Box sx={{marginLeft:3}}>
-          <Box component='img' src={background}></Box>
+          <Box component='img' src={background} sx={{ml:10}}></Box>
           <Typography variant='h5' component='h1' sx={{ml:15,textAlign:'center'}}>
             GitHub
           </Typography>
@@ -46,7 +46,7 @@ const Banner = () => {
           </Box>
           
           <Box sx={{marginLeft:3}}>
-          <Box component='img' src={background}></Box>
+          <Box component='img' src={background} sx={{ml:10}}></Box>
           <Typography variant='h5' component='h1' sx={{ml:15,textAlign:'center'}}>
             Slack
           </Typography>
