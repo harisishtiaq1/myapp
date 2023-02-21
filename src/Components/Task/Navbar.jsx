@@ -71,13 +71,6 @@ function AlbumLayout() {
       </List>
     </Box>
   );
-  const BootstrapButton = styled(Button)({
-    '&:active': {
-      boxShadow: 'none',
-      color: colorChange ?  "red" : "rgb(237, 205, 55)" ,
-      borderColor: '#005cbf',
-    },
-  });
   return (
     <ThemeProvider theme={theme}>
     <CssBaseline/>
@@ -112,14 +105,17 @@ function AlbumLayout() {
         </Link>
           <Box sx={{ display: { xs: 'none', sm: 'block' }}}>
             {navItems.map((item) => (
-              <BootstrapButton disableRipple>
               <Button key={item} sx={{ my: 2,
                 color: colorChange ? "black" : "white",
                 ":hover": {
+                  buttonShadow:'disable',
                   color: colorChange ? "red" : "rgb(237, 205, 55)",
                 },
                 ":focus": {
+                  boxShadow: 'disable',
                   color: colorChange ? "red" : "rgb(237, 205, 55)",
+                  borderColor: 'none',
+                  border:'none'
                 },
                 ":active": {
                   color: colorChange ? "red" : "rgb(237, 205, 55)",
@@ -127,7 +123,6 @@ function AlbumLayout() {
                 }}>
                 {item}
               </Button>
-              </BootstrapButton>
             ))}
           </Box>
         </Toolbar>
@@ -135,7 +130,6 @@ function AlbumLayout() {
         </Container>
       </AppBar>
       <Box component="nav">
-        
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -146,7 +140,6 @@ function AlbumLayout() {
           sx={{
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-
           }}
         >
           {drawer}

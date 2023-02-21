@@ -17,14 +17,15 @@ import Appbar from "./Components/Task/Navbar"
 import Main from "./Components/Task/Main"
 import Banner from "./Components/Task/Banner"
 import Banner2 from './Components/Task/Banner2';
+import { HashLink as Link } from 'react-router-hash-link';
 function App() {
   return (
-    <>
-  <Appbar/>
-  <Main/>
-  <Banner/>
-  <Banner2/>
-    </>
+  <BrowserRouter>
+    <Appbar/>
+    <Main/>
+    <Banner/>
+    <Banner2/>
+  </BrowserRouter>
   );
 }
 

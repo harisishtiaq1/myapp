@@ -9,7 +9,6 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Container, createTheme,  ThemeProvider, Slide, Grid, keyframes } from '@mui/material';
 import main from "./img/main.png"
-import Banner from "./Banner"
 import figma from "./img/figma.svg"
 import next from "./img/nextjs.svg"
 import javascript from "./img/js.svg"
