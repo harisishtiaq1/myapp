@@ -35,6 +35,8 @@ function AlbumLayout() {
   };
   const topRef = React.useRef(null);
   const executeScroll = () => topRef.current.scrollIntoView()
+  const bottomRef = React.useRef(null);
+  const executeScroll1 = () => bottomRef.current.scrollIntoView()
   React.useEffect(()=>{
     changeNavbarColor();
     document.addEventListener("scroll",setColorchange)
@@ -74,7 +76,7 @@ function AlbumLayout() {
     <ThemeProvider theme={theme}>
     <CssBaseline/>
     <Container>
-    <Box sx={{ display: 'flex'}}
+    <Box sx={{ display: 'flex'}} ref={topRef}
     >
       <CssBaseline />
       <AppBar component="nav" Wrap sx={
@@ -102,26 +104,26 @@ function AlbumLayout() {
           <Link href='/'>
         <Box component='img' alt='img' sx={{height:35}} src={colorChange? transition : logo}></Box>
         </Link>
-          <Box sx={{ display: { xs: 'none', sm: 'block' }}} ref={topRef}>
-              <Button sx={{ my: 2,
+          <Box sx={{ display: { xs: 'none', sm: 'block' }}}>
+              <Link color="#f50057" sx={{ mr:5,my: 2,
+              cursor:'pointer',
+              textDecoration:'none',
                 color: colorChange ? "black" : "white",
                 ":hover": {
-                  buttonShadow:'disable',
                   color: colorChange ? "red" : "rgb(237, 205, 55)",
                 },
                 ":focus": {
-                  boxShadow: 'disable',
                   color: colorChange ? "red" : "rgb(237, 205, 55)",
-                  borderColor: 'none',
-                  border:'none'
                 },
                 ":active": {
                   color: colorChange ? "red" : "rgb(237, 205, 55)",
                 },
                 }}  onClick={executeScroll}>
                 Home
-              </Button>
-              <Button sx={{ my: 2,
+              </Link>
+              <Link sx={{ mr:5,my: 2,
+              cursor:'pointer',
+              textDecoration:'none',
                 color: colorChange ? "black" : "white",
                 ":hover": {
                   buttonShadow:'disable',
@@ -136,10 +138,12 @@ function AlbumLayout() {
                 ":active": {
                   color: colorChange ? "red" : "rgb(237, 205, 55)",
                 },
-                }} >
+                }}  onClick={executeScroll1}>
                 layouts
-              </Button>
-              <Button sx={{ my: 2,
+              </Link>
+              <Link sx={{ my: 2,mr:5,
+              cursor:'pointer',
+              textDecoration:'none',
                 color: colorChange ? "black" : "white",
                 ":hover": {
                   buttonShadow:'disable',
@@ -156,8 +160,10 @@ function AlbumLayout() {
                 },
                 }} >
                 Apps
-              </Button>
-              <Button sx={{ my: 2,
+              </Link>
+              <Link sx={{ my: 2,mr:5,
+              cursor:'pointer',
+              textDecoration:'none',
                 color: colorChange ? "black" : "white",
                 ":hover": {
                   buttonShadow:'disable',
@@ -174,8 +180,10 @@ function AlbumLayout() {
                 },
                 }} >
                 Customization
-              </Button>
-              <Button sx={{ my: 2,
+              </Link>
+              <Link sx={{ my: 2,mr:5,
+              cursor:'pointer',
+              textDecoration:'none',
                 color: colorChange ? "black" : "white",
                 ":hover": {
                   buttonShadow:'disable',
@@ -192,8 +200,10 @@ function AlbumLayout() {
                 },
                 }} >
                 Feature
-              </Button>
-              <Button sx={{ my: 2,
+              </Link>
+              <Link sx={{ my: 2,mr:5,
+              cursor:'pointer',
+              textDecoration:'none',
                 color: colorChange ? "black" : "white",
                 ":hover": {
                   buttonShadow:'disable',
@@ -210,7 +220,7 @@ function AlbumLayout() {
                 },
                 }} >
                 Documents
-              </Button>
+              </Link>
           </Box>
         </Toolbar>
         </Slide>

@@ -38,8 +38,6 @@ const slideTop=keyframes`
   animation: roll && `${slideTop} 1s ease-out both`
 }));
 function AlbumLayout() {
-   const topRef=React.useRef(null)
-   const executeScroll = () => topRef.current.scrollIntoView();
     const theme=createTheme();
     const [checked, setChecked] = React.useState(true);
     const handleChange = () => {
@@ -60,14 +58,14 @@ function AlbumLayout() {
     <CssBaseline/>
     <main>
     <Box
-        ref={topRef}
           sx={{
             bgcolor: '#1976D2',
             pt: 6,
             pb: 6,
             display:'flex'
           }}
-          style={styles.paperContainer}>
+          style={styles.paperContainer}
+          >
             <Grid container spacing={2} sx={{display:'flex',flexDirection:'row'}}>
                 <Grid xs={4}>
                   <Slide direction="right" in={checked} style={{transformOrigin:'0 0 0'}}
