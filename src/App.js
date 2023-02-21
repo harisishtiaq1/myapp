@@ -14,18 +14,16 @@ import Forgot from './Components/Material/Forgot';
 import Checkout from './Components/Checktout/Checkout';
 import Trans from "./Components/Effect/Trans"
 import Appbar from "./Components/Task/Navbar"
+import Main from "./Components/Task/Main"
+import Banner from "./Components/Task/Banner"
+import Banner2 from './Components/Task/Banner2';
 function App() {
   return (
     <>
-    {/* <BrowserRouter>
-    <Routes>
-      <Route path='/' exact={true} element={<Material/>}/>
-      <Route path="/signin" exact={true} element={<Signin/>}/>
-      <Route path='signup' exact={true} element={<Material/>}/>
-      <Route path="forget" exact={true} element={<Forgot/>}/>
-    </Routes>
-    </BrowserRouter> */}
   <Appbar/>
+  <Main/>
+  <Banner/>
+  <Banner2/>
     </>
   );
 }

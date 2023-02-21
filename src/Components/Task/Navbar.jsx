@@ -20,8 +20,10 @@ import Main from "./Main"
 import { Container, createTheme, Link, ThemeProvider, Slide} from '@mui/material';
 import logo from "./img/download.png"
 import transition from "./img/Transition.png"
+import { styled } from '@mui/system';
 
-const drawerWidth = 240;
+
+const drawerWidth = 200;
 const navItems = ['Home', 'Layouts', 'Apps','Customization','Features','Documents'];
 
 function AlbumLayout() {
@@ -46,7 +48,7 @@ function AlbumLayout() {
     handleChange();
   },[])
   const [mobileOpen, setMobileOpen] = React.useState(false);
-    const theme=createTheme();
+  const theme=createTheme();
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
@@ -69,6 +71,13 @@ function AlbumLayout() {
       </List>
     </Box>
   );
+  const BootstrapButton = styled(Button)({
+    '&:active': {
+      boxShadow: 'none',
+      color: colorChange ?  "red" : "rgb(237, 205, 55)" ,
+      borderColor: '#005cbf',
+    },
+  });
   return (
     <ThemeProvider theme={theme}>
     <CssBaseline/>
@@ -103,6 +112,7 @@ function AlbumLayout() {
         </Link>
           <Box sx={{ display: { xs: 'none', sm: 'block' }}}>
             {navItems.map((item) => (
+              <BootstrapButton disableRipple>
               <Button key={item} sx={{ my: 2,
                 color: colorChange ? "black" : "white",
                 ":hover": {
@@ -112,11 +122,12 @@ function AlbumLayout() {
                   color: colorChange ? "red" : "rgb(237, 205, 55)",
                 },
                 ":active": {
-                  color: colorChange ?  "red" : "rgb(237, 205, 55)" ,
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
                 },
                 }}>
                 {item}
               </Button>
+              </BootstrapButton>
             ))}
           </Box>
         </Toolbar>
@@ -135,7 +146,7 @@ function AlbumLayout() {
           sx={{
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-            backgroundColor: colorChange ? "#fff" :"transparent"
+
           }}
         >
           {drawer}
@@ -143,7 +154,6 @@ function AlbumLayout() {
       </Box>
     </Box>
     </Container>
-    <Main/>
     </ThemeProvider>
   );
 }

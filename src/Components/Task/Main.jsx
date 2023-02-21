@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Container, createTheme,  ThemeProvider, Slide, Grid } from '@mui/material';
+import { Container, createTheme,  ThemeProvider, Slide, Grid, keyframes } from '@mui/material';
 import main from "./img/main.png"
 import Banner from "./Banner"
 import figma from "./img/figma.svg"
@@ -16,12 +16,28 @@ import javascript from "./img/js.svg"
 import mui from "./img/mui-with-bg.svg"
 import typescript from "./img/ts.svg"
 import backimg from "./img/backpic.jpeg"
+import { styled } from '@mui/system';
 const styles = {
   paperContainer: {
     backgroundImage: `url(${backimg})`,
     backgroundSize: `cover`,
   },
 };
+const slideTop=keyframes`
+0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+            opacity:0;
+  }
+  100% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+            opacity:1;
+  }`;
+  const Holder = styled(Grid)(({ roll }) => ({
+  visibility: !roll && "hidden",
+  animation: roll && `${slideTop} 1s ease-out both`
+}));
 function AlbumLayout() {
     const theme=createTheme();
     const [checked, setChecked] = React.useState(true);
@@ -30,6 +46,13 @@ function AlbumLayout() {
   };
   React.useEffect(()=>{
     handleChange();
+  },[])
+  const [roll,setRoll] =React.useState(true)
+
+  React.useEffect(()=>{
+    setTimeout(()=>{
+      setRoll(true)
+    },500)
   },[])
   return (
     <ThemeProvider theme={theme}>
@@ -43,10 +66,11 @@ function AlbumLayout() {
             display:'flex'
           }}
           style={styles.paperContainer}>
-            <Slide direction="right" in={checked} style={{transformOrigin:'0 0 0'}}
+            <Grid container spacing={2} sx={{display:'flex',flexDirection:'row'}}>
+                <Grid xs={4}>
+                  <Slide direction="right" in={checked} style={{transformOrigin:'0 0 0'}}
     {...(checked ? {timeout:1000}:{})}>
-            <Container sx={{ml:12}}>
-                <Grid xs={12}>
+                <Container sx={{ml:13}}>
             <Typography
               component="div"
               variant="h3"
@@ -75,17 +99,20 @@ function AlbumLayout() {
             <Button variant="contained" sx={{bgcolor:"red",mr:2}}>Live Preview</Button>
             <Button variant="contained">Docs</Button>
             </Box>
-            </Grid>
             </Container>
             </Slide>
-            <Slide direction="up" in={checked} container={styles.current} style={{transformOrigin:'0 0 0'}}
-            {...(checked ? {timeout:1000}:{})}>
-            <Grid  xs={12} sm={6}component="img" alt='img' sx={{width:600,height:400,mr:10,mt:5}} src={main}></Grid>
-            </Slide>
+            </Grid>
+            <Holder roll={roll}>
+            <Grid  xs={8}>
+              <Box
+              component="img" alt='img' sx={{width:700,mt:20,ml:20}} src={main}>
+              </Box>
+            </Grid>
+            </Holder>
+            </Grid> 
             </Box>
             
     </main>
-    <Banner/>
     </ThemeProvider>
     
   );
