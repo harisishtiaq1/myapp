@@ -38,6 +38,8 @@ const slideTop=keyframes`
   animation: roll && `${slideTop} 1s ease-out both`
 }));
 function AlbumLayout() {
+   const topRef=React.useRef(null)
+   const executeScroll = () => topRef.current.scrollIntoView();
     const theme=createTheme();
     const [checked, setChecked] = React.useState(true);
     const handleChange = () => {
@@ -58,6 +60,7 @@ function AlbumLayout() {
     <CssBaseline/>
     <main>
     <Box
+        ref={topRef}
           sx={{
             bgcolor: '#1976D2',
             pt: 6,

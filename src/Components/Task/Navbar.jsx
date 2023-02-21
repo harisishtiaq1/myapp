@@ -16,12 +16,9 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import Main from "./Main"
 import { Container, createTheme, Link, ThemeProvider, Slide} from '@mui/material';
 import logo from "./img/download.png"
 import transition from "./img/Transition.png"
-import { styled } from '@mui/system';
-
 
 const drawerWidth = 200;
 const navItems = ['Home', 'Layouts', 'Apps','Customization','Features','Documents'];
@@ -36,6 +33,8 @@ function AlbumLayout() {
        setColorchange(false);
      }
   };
+  const topRef = React.useRef(null);
+  const executeScroll = () => topRef.current.scrollIntoView()
   React.useEffect(()=>{
     changeNavbarColor();
     document.addEventListener("scroll",setColorchange)
@@ -86,7 +85,7 @@ function AlbumLayout() {
           boxShadow:'none',
           backgroundColor: colorChange ? "#fff" :"transparent"
         }
-      }>
+      } >
         <Container>
         <Slide direction="down" in={checked} style={{transformOrigin:'0 0 0'}}
     {...(checked ? {timeout:1000}:{})}>
@@ -103,9 +102,8 @@ function AlbumLayout() {
           <Link href='/'>
         <Box component='img' alt='img' sx={{height:35}} src={colorChange? transition : logo}></Box>
         </Link>
-          <Box sx={{ display: { xs: 'none', sm: 'block' }}}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ my: 2,
+          <Box sx={{ display: { xs: 'none', sm: 'block' }}} ref={topRef}>
+              <Button sx={{ my: 2,
                 color: colorChange ? "black" : "white",
                 ":hover": {
                   buttonShadow:'disable',
@@ -120,10 +118,99 @@ function AlbumLayout() {
                 ":active": {
                   color: colorChange ? "red" : "rgb(237, 205, 55)",
                 },
-                }}>
-                {item}
+                }}  onClick={executeScroll}>
+                Home
               </Button>
-            ))}
+              <Button sx={{ my: 2,
+                color: colorChange ? "black" : "white",
+                ":hover": {
+                  buttonShadow:'disable',
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                },
+                ":focus": {
+                  boxShadow: 'disable',
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                  borderColor: 'none',
+                  border:'none'
+                },
+                ":active": {
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                },
+                }} >
+                layouts
+              </Button>
+              <Button sx={{ my: 2,
+                color: colorChange ? "black" : "white",
+                ":hover": {
+                  buttonShadow:'disable',
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                },
+                ":focus": {
+                  boxShadow: 'disable',
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                  borderColor: 'none',
+                  border:'none'
+                },
+                ":active": {
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                },
+                }} >
+                Apps
+              </Button>
+              <Button sx={{ my: 2,
+                color: colorChange ? "black" : "white",
+                ":hover": {
+                  buttonShadow:'disable',
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                },
+                ":focus": {
+                  boxShadow: 'disable',
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                  borderColor: 'none',
+                  border:'none'
+                },
+                ":active": {
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                },
+                }} >
+                Customization
+              </Button>
+              <Button sx={{ my: 2,
+                color: colorChange ? "black" : "white",
+                ":hover": {
+                  buttonShadow:'disable',
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                },
+                ":focus": {
+                  boxShadow: 'disable',
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                  borderColor: 'none',
+                  border:'none'
+                },
+                ":active": {
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                },
+                }} >
+                Feature
+              </Button>
+              <Button sx={{ my: 2,
+                color: colorChange ? "black" : "white",
+                ":hover": {
+                  buttonShadow:'disable',
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                },
+                ":focus": {
+                  boxShadow: 'disable',
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                  borderColor: 'none',
+                  border:'none'
+                },
+                ":active": {
+                  color: colorChange ? "red" : "rgb(237, 205, 55)",
+                },
+                }} >
+                Documents
+              </Button>
           </Box>
         </Toolbar>
         </Slide>
