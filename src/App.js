@@ -18,15 +18,11 @@ import Main from "./Components/Task/Main"
 import Banner from "./Components/Task/Banner"
 import Banner2 from './Components/Task/Banner2';
 import { HashLink as Link } from 'react-router-hash-link'
+import Data from "./Components/Task/Data"
 function App() {
 
   return (
-  <BrowserRouter>
-    <Appbar/>
-    <Main/>
-    <Banner/>
-    <Banner2/>
-  </BrowserRouter>
+  <Data/>
   );
 }
 

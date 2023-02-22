@@ -23,7 +23,7 @@ const Holder = styled(Typography)(({ roll }) => ({
   animation: roll && `${slideBottom} 1s ease-out both`
 }));
 
-const Banner = () => {
+const Banner = ({bottomRef}) => {
     const theme=createTheme()
   const [roll,setRoll]=React.useState(true)
 
@@ -35,7 +35,7 @@ const Banner = () => {
   return (
     <ThemeProvider theme={theme}>
         <CssBaseline/>
-        <Box sx={{textAlign:"center"}}>
+        <Box sx={{textAlign:"center"}} ref={bottomRef}>
         <Holder roll={roll}>
         <Typography component="h5" sx={{color:'#01579b',fontWeight:'bold'}} >
             CREMA MUI
@@ -48,7 +48,7 @@ const Banner = () => {
         <Grid container>
           <Container>
         <Box sx={{display:'flex',flexDirection:'row',justifyContent:'space-between',mt:20}}>
-        <Grid xs={4}>
+        <Grid xs={12}>
           <Box sx={{textAlign:"center"}}>
             <Box component='img' src={documentation}></Box>
           <Typography variant='h5' component='h1' sx={{textAlign:'center'}}>
@@ -62,7 +62,7 @@ const Banner = () => {
           </Button>
           </Box>
           </Grid>
-          <Grid xs={4}>
+          <Grid xs={12}>
           <Box sx={{textAlign:"center"}}>
           <Box component='img' src={github}></Box>
           <Typography variant='h5' component='h1' sx={{textAlign:'center'}}>
@@ -76,7 +76,7 @@ const Banner = () => {
           </Button>
           </Box>
           </Grid>
-          <Grid xs={4}>
+          <Grid xs={12}>
           <Box sx={{textAlign:"center"}}>
           <Box component='img' src={slack}></Box>
           <Typography variant='h5' component='h1' sx={{textAlign:'center'}}>

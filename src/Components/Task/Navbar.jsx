@@ -15,7 +15,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
 import { Container, createTheme, Link, ThemeProvider, Slide} from '@mui/material';
 import logo from "./img/download.png"
 import transition from "./img/Transition.png"
@@ -23,7 +22,7 @@ import transition from "./img/Transition.png"
 const drawerWidth = 200;
 const navItems = ['Home', 'Layouts', 'Apps','Customization','Features','Documents'];
 
-function AlbumLayout() {
+function AlbumLayout({executeScroll,executeScroll1}) {
   const [colorChange, setColorchange] = React.useState(false);
   const changeNavbarColor = () =>{
      if(window.scrollY >= 1){
@@ -33,10 +32,6 @@ function AlbumLayout() {
        setColorchange(false);
      }
   };
-  const topRef = React.useRef(null);
-  const executeScroll = () => topRef.current.scrollIntoView()
-  const bottomRef = React.useRef(null);
-  const executeScroll1 = () => bottomRef.current.scrollIntoView()
   React.useEffect(()=>{
     changeNavbarColor();
     document.addEventListener("scroll",setColorchange)
@@ -76,12 +71,11 @@ function AlbumLayout() {
     <ThemeProvider theme={theme}>
     <CssBaseline/>
     <Container>
-    <Box sx={{ display: 'flex'}} ref={topRef}
+    <Box sx={{ display: 'flex'}}
     >
       <CssBaseline />
-      <AppBar component="nav" Wrap sx={
+      <AppBar component="nav" wrap sx={
         {
-          position:'absolute',
           position:'fixed',
           background:'transparent',
           boxShadow:'none',
