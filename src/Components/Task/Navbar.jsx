@@ -84,7 +84,7 @@ function AlbumLayout({executeScroll,executeScroll1}) {
       } >
         <Container>
         <Slide direction="down" in={checked} style={{transformOrigin:'0 0 0'}}
-    {...(checked ? {timeout:1000}:{})}>
+        {...(checked ? {timeout:1000}:{})}>
         <Toolbar sx={{ display: 'flex',justifyContent:'space-between' }}>
           <IconButton
             color="inherit"
@@ -99,7 +99,7 @@ function AlbumLayout({executeScroll,executeScroll1}) {
         <Box component='img' alt='img' sx={{height:35}} src={colorChange? transition : logo}></Box>
         </Link>
           <Box sx={{ display: { xs: 'none', sm: 'block' }}}>
-              <Link color="#f50057" sx={{ mr:5,my: 2,
+              <Link color="#f50057" sx={{ mr:3,my: 2,
               cursor:'pointer',
               textDecoration:'none',
                 color: colorChange ? "black" : "white",
@@ -115,7 +115,7 @@ function AlbumLayout({executeScroll,executeScroll1}) {
                 }}  onClick={executeScroll}>
                 Home
               </Link>
-              <Link sx={{ mr:5,my: 2,
+              <Link sx={{ mr:3,my: 2,
               cursor:'pointer',
               textDecoration:'none',
                 color: colorChange ? "black" : "white",
@@ -135,7 +135,7 @@ function AlbumLayout({executeScroll,executeScroll1}) {
                 }}  onClick={executeScroll1}>
                 layouts
               </Link>
-              <Link sx={{ my: 2,mr:5,
+              <Link sx={{ my: 2,mr:3,
               cursor:'pointer',
               textDecoration:'none',
                 color: colorChange ? "black" : "white",
@@ -155,7 +155,7 @@ function AlbumLayout({executeScroll,executeScroll1}) {
                 }} >
                 Apps
               </Link>
-              <Link sx={{ my: 2,mr:5,
+              <Link sx={{ my: 2,mr:3,
               cursor:'pointer',
               textDecoration:'none',
                 color: colorChange ? "black" : "white",
@@ -175,7 +175,7 @@ function AlbumLayout({executeScroll,executeScroll1}) {
                 }} >
                 Customization
               </Link>
-              <Link sx={{ my: 2,mr:5,
+              <Link sx={{ my: 2,mr:3,
               cursor:'pointer',
               textDecoration:'none',
                 color: colorChange ? "black" : "white",
@@ -195,7 +195,7 @@ function AlbumLayout({executeScroll,executeScroll1}) {
                 }} >
                 Feature
               </Link>
-              <Link sx={{ my: 2,mr:5,
+              <Link sx={{ my: 2,mr:3,
               cursor:'pointer',
               textDecoration:'none',
                 color: colorChange ? "black" : "white",

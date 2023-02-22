@@ -8,7 +8,7 @@ const Banner2 = () => {
         <CssBaseline/>
         <Container>
             <Grid container spacing={2} sx={{mt:3}}>
-            <Grid xs={8}>
+            <Grid xs={12} lg={8}>
             <Card sx={{ marginTop:5 }}>
       <CardMedia
         sx={{ width:'100%',width:1000,height:400 }}
@@ -142,7 +142,13 @@ const Banner2 = () => {
       </CardContent>
     </Card>
             </Grid>
-            <Grid xs={4} sx={{position:'sticky',top:'2rem',alignSelf:"start"}} >
+            <Grid xs={12} lg={4} sx={{position:'sticky',top:'2rem',alignSelf:"start",
+            alignSelf:{
+              xs:'start'
+            },
+            justifySelf:{
+              xs:'start'
+            }}} >
             <Typography sx={{marginLeft:5,mt:7,mb:0,fontWeight:'bold',color:'#0090F1'}}>
                 Award-Winning Design Best Collection
             </Typography>

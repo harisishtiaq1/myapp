@@ -1,6 +1,9 @@
 import React from 'react'
 import Navbar from "./Navbar"
 import Main from "./Main"
+import Banner from './Banner';
+import Banner2 from './Banner2';
+
 const Data = () => {
     const topRef = React.useRef(null);
     const executeScroll = () => topRef.current.scrollIntoView()
@@ -9,7 +12,9 @@ const Data = () => {
   return (
     <>
     <Navbar  executeScroll={executeScroll}  executeScroll1={executeScroll1}/>
-    <Main topRef={topRef}  bottomRef={bottomRef}/>
+    <Main topRef={topRef} />
+    <Banner bottomRef={bottomRef}/>
+    <Banner2/>
     </>
   )
 }

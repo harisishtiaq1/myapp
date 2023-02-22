@@ -29,6 +29,7 @@ const styles = {
   paperContainer: {
     backgroundImage: `url(${backimg})`,
     backgroundSize: `cover`,
+    width: "fit-content",
   },
 };
 const slideTop = keyframes`
@@ -42,7 +43,7 @@ const slideTop = keyframes`
             transform: translateY(-100px);
             opacity:1;
   }`;
-const Holder = styled(Grid)(({ roll }) => ({
+const Holder = styled(Box)(({ roll }) => ({
   visibility: !roll && "hidden",
   animation: roll && `${slideTop} 1s ease-out both`,
 }));
@@ -74,19 +75,21 @@ function AlbumLayout({ bottomRef, topRef }) {
           style={styles.paperContainer}
           ref={topRef}
         >
-          <Grid
-            container
-            spacing={2}
-            sx={{ display: "flex", backgroundColor: "#eee" }}
-          >
-            <Grid item md={6}>
+          <Grid container spacing={2} sx={{ display: "flex", mt: 10 }}>
+            <Grid item md={4} xs={12} sm={12} lg={4}>
               <Slide
                 direction="right"
                 in={checked}
                 style={{ transformOrigin: "0 0 0" }}
                 {...(checked ? { timeout: 1000 } : {})}
               >
-                <Container sx={{ ml: 13 }}>
+                <Container
+                  sx={{
+                    ml: {
+                      lg: 12,
+                    },
+                  }}
+                >
                   <Typography
                     component="div"
                     variant="h3"
@@ -99,17 +102,16 @@ function AlbumLayout({ bottomRef, topRef }) {
                     component="div"
                     variant="h5"
                     color="white"
-                    sx={{ mt: 5 }}
-                    width={500}
+                    sx={{ mt: 5, width: {} }}
                   >
                     Our creatively crafted products keep you moving faster in
                     this digital space.
                   </Typography>
                   <Box sx={{ display: "flex", mt: 2 }}>
-                    <Box component="img" src={figma} sx={{ mr: 2 }} />
-                    <Box component="img" src={next} sx={{ mr: 2 }} />
-                    <Box component="img" src={javascript} sx={{ mr: 2 }} />
-                    <Box component="img" src={mui} sx={{ mr: 2 }} />
+                    <Box component="img" src={figma} sx={{ mr: 1 }} />
+                    <Box component="img" src={next} sx={{ mr: 1 }} />
+                    <Box component="img" src={javascript} sx={{ mr: 1 }} />
+                    <Box component="img" src={mui} sx={{ mr: 1 }} />
                     <Box component="img" src={typescript} />
                   </Box>
                   <Box sx={{ mt: 2, ml: 5 }}>
@@ -123,40 +125,46 @@ function AlbumLayout({ bottomRef, topRef }) {
             </Grid>
             <Grid
               item
-              md={6}
-              lg={6}
-              xl={6}
+              md={8}
+              lg={8}
+              xs={12}
+              sm={12}
               sx={{
-                background: "pink",
                 display: "flex",
                 justifyContent: "center",
-                alignItem: "center",
+                alignItems: "center",
               }}
-              >
+            >
               <Holder roll={roll}>
                 <Box
                   component="img"
                   alt="img"
                   sx={{
-                    width: 600,
-                    height: 400,
-                    // width: {
-                    //   xs: 100,
-                    //   sm: 200,
-                    //   md: 300,
-                    //   lg: 400,
-                    //   xl: 500,
-                    // },
+                    mt: 4,
+                    pt: 5,
+                    marginTop: {
+                      xs: 10,
+                      sm: 10,
+                      md: 10,
+                      lg: 10,
+                      xl: 10,
+                    },
+                    width: {
+                      xs: 300,
+                      sm: 500,
+                      md: 500,
+                      lg: 600,
+                      xl: 600,
+                    },
                   }}
                   src={main}
                 />
+                {/* </Box> */}
               </Holder>
             </Grid>
           </Grid>
         </Box>
       </main>
-      <Banner bottomRef={bottomRef} />
-      <Banner1 />
     </ThemeProvider>
   );
 }
