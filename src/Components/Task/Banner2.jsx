@@ -4,7 +4,11 @@ import { styled } from "@mui/system";
 import {
   CardMedia,
   Button,
+  CardHeader,
+  CardContent,
+  CardActions,
   Typography,
+  Card,
   createTheme,
   ThemeProvider,
   CssBaseline,
@@ -19,13 +23,16 @@ const Banner2 = () => {
       direction: "column-reverse",
     },
   }));
-  
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container>
         <Holder>
-          <Grid container spacing={2} sx={{ mt: 3 }}>
+          <Grid container spacing={2} sx={{ mt: 3,display:'flex',flexDirection:{
+            xs:'column-reverse',
+            md:'row'
+          } }}>
             <Grid xs={12} lg={8}>
               <Card sx={{ marginTop: 5 }}>
                 <CardMedia
@@ -208,7 +215,7 @@ const Banner2 = () => {
               xs={12}
               lg={4}
               sx={{
-                position: "sticky",
+                position: {xs:"unset",md:"sticky"},
                 top: "2rem",
                 alignSelf: "start",
                 alignSelf: {
