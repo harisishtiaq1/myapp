@@ -27,6 +27,7 @@ const slideBottom = keyframes`
           opacity:1 
 }
 `;
+
 const Holder = styled(Typography)(({ roll }) => ({
   visibility: !roll && "hidden",
   animation: roll && `${slideBottom} 1s ease-out both`,
@@ -70,79 +71,79 @@ const Banner = ({ bottomRef }) => {
         }}
       >
         <Container>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={12} sm={12} lg={4}>
-            <Box sx={{ textAlign: "center" }}>
-              <Box component="img" src={documentation}></Box>
-              <Typography
-                variant="h5"
-                component="h1"
-                sx={{ textAlign: "center" }}
-              >
-                Documentation
-              </Typography>
-              <Typography
-                sx={{ marginTop: 2, textAlign: "center", fontSize: 15 }}
-              >
-                Available our detailed document and top call support here.
-              </Typography>
-              <Button variant="contained" sx={{ marginTop: 2 }}>
-                Check Document
-              </Button>
-            </Box>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={12} sm={12} lg={4}>
+              <Box sx={{ textAlign: "center" }}>
+                <Box component="img" src={documentation}></Box>
+                <Typography
+                  variant="h5"
+                  component="h1"
+                  sx={{ textAlign: "center" }}
+                >
+                  Documentation
+                </Typography>
+                <Typography
+                  sx={{ marginTop: 2, textAlign: "center", fontSize: 15 }}
+                >
+                  Available our detailed document and top call support here.
+                </Typography>
+                <Button variant="contained" sx={{ marginTop: 2 }}>
+                  Check Document
+                </Button>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={12} sm={12} lg={4}>
+              <Box sx={{ textAlign: "center" }}>
+                <Box component="img" src={github}></Box>
+                <Typography
+                  variant="h5"
+                  component="h1"
+                  sx={{ textAlign: "center" }}
+                >
+                  GitHub
+                </Typography>
+                <Typography
+                  sx={{ marginTop: 2, fontSize: 15 }}
+                  component="p"
+                  variant="p"
+                  color="inherit"
+                >
+                  Get latest feature, make pull request or bug fixes
+                </Typography>
+                <Button variant="contained" sx={{ marginTop: 4 }}>
+                  Join on GitHub
+                </Button>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={12} sm={12} lg={4}>
+              <Box sx={{ textAlign: "center" }}>
+                <Box component="img" src={slack}></Box>
+                <Typography
+                  variant="h5"
+                  component="h1"
+                  sx={{ textAlign: "center" }}
+                >
+                  Slack
+                </Typography>
+                <Typography
+                  component="p"
+                  variant="p"
+                  sx={{
+                    marginTop: 2,
+                    textAlign: "center",
+                    color: "inherit",
+                    fontSize: 15,
+                  }}
+                >
+                  Share your idea and insights, for inspiration collaboration
+                  and great result.
+                </Typography>
+                <Button variant="contained" sx={{ marginTop: 2 }}>
+                  Join Our Community
+                </Button>
+              </Box>
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={12} sm={12} lg={4}>
-            <Box sx={{ textAlign: "center" }}>
-              <Box component="img" src={github}></Box>
-              <Typography
-                variant="h5"
-                component="h1"
-                sx={{ textAlign: "center" }}
-              >
-                GitHub
-              </Typography>
-              <Typography
-                sx={{ marginTop: 2, fontSize: 15 }}
-                component="p"
-                variant="p"
-                color="inherit"
-              >
-                Get latest feature, make pull request or bug fixes
-              </Typography>
-              <Button variant="contained" sx={{ marginTop: 4 }}>
-                Join on GitHub
-              </Button>
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={12} sm={12} lg={4}>
-            <Box sx={{ textAlign: "center" }}>
-              <Box component="img" src={slack}></Box>
-              <Typography
-                variant="h5"
-                component="h1"
-                sx={{ textAlign: "center" }}
-              >
-                Slack
-              </Typography>
-              <Typography
-                component="p"
-                variant="p"
-                sx={{
-                  marginTop: 2,
-                  textAlign: "center",
-                  color: "inherit",
-                  fontSize: 15,
-                }}
-              >
-                Share your idea and insights, for inspiration collaboration and
-                great result.
-              </Typography>
-              <Button variant="contained" sx={{ marginTop: 2 }}>
-                Join Our Community
-              </Button>
-            </Box>
-          </Grid>
-        </Grid>
         </Container>
       </Box>
     </ThemeProvider>
