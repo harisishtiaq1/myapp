@@ -23,8 +23,6 @@ import mui from "./img/mui-with-bg.svg";
 import typescript from "./img/ts.svg";
 import backimg from "./img/backpic.jpeg";
 import { styled } from "@mui/system";
-import Banner from "./Banner";
-import Banner1 from "./Banner2";
 const styles = {
   paperContainer: {
     backgroundImage: `url(${backimg})`,
@@ -47,7 +45,7 @@ const Holder = styled(Box)(({ roll }) => ({
   visibility: !roll && "hidden",
   animation: roll && `${slideTop} 1s ease-out both`,
 }));
-function AlbumLayout({ bottomRef, topRef }) {
+function AlbumLayout({ topRef }) {
   const theme = createTheme();
   const [checked, setChecked] = React.useState(true);
   const handleChange = () => {
