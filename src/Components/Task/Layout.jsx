@@ -14,7 +14,7 @@ import {
   Grid,
   Box,
   Slide,
-  keyframes
+  keyframes,
 } from "@mui/material";
 import { styled } from "@mui/system";
 const slideTop = keyframes`
@@ -34,23 +34,24 @@ const Holder = styled(Box)(({ roll }) => ({
 }));
 const Banner2 = () => {
   const theme = createTheme();
-  const myRef=React.useRef();
-  const [ myElement, setMyElement]  = useState();
+  const myRef = React.useRef();
+  const [myElement, setMyElement] = useState();
   console.log("myElement", myElement);
-  React.useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
+  React.useEffect(
+    () => {
+      const observer = new IntersectionObserver((entries) => {
+        const entry = entries[0];
 
-      setMyElement(entry.isIntersecting);
-      if (entry.isIntersecting) observer.unobserve(entry.target); 
+        setMyElement(entry.isIntersecting);
+        if (entry.isIntersecting) observer.unobserve(entry.target);
+      });
+      observer.observe(myRef.current);
+    },
+    {
+      threshold: 1,
+    }[myRef]
+  );
 
-    });
-    observer.observe(myRef.current);
-
-  },{
-    threshold:1
-  } [myRef]);
-  
   const [roll, setRoll] = React.useState(true);
   React.useEffect(() => {
     setTimeout(() => {
@@ -61,7 +62,6 @@ const Banner2 = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container>
-        
         <Grid
           container
           spacing={2}
@@ -74,29 +74,33 @@ const Banner2 = () => {
             },
           }}
         >
-          <Grid xs={12} lg={8} sx={{
-            mt: {
-              xs:10,
-              md:3
-            },
-          }}>
-          <Holder roll={myElement ? roll : ""} ref={myRef}>
-            <Card sx={{ marginTop: 5 }}>
-              <CardMedia
-                sx={{ width: "100%", width: 1000, height: 400 }}
-                image={image}
-              />
-              <CardContent>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="div"
-                  sx={{ fontWeight: "bold" }}
-                >
-                  Layout-1 Default
-                </Typography>
-              </CardContent>
-            </Card>
+          <Grid
+            xs={12}
+            lg={8}
+            sx={{
+              mt: {
+                xs: 10,
+                md: 3,
+              },
+            }}
+          >
+            <Holder roll={myElement ? roll : ""} ref={myRef}>
+              <Card sx={{ marginTop: 5 }}>
+                <CardMedia
+                  sx={{ width: "100%", width: 1000, height: 400 }}
+                  image={image}
+                />
+                <CardContent>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    Layout-1 Default
+                  </Typography>
+                </CardContent>
+              </Card>
             </Holder>
             <Card sx={{ marginTop: 5 }}>
               <CardMedia

@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Main from "./DashBoard";
 import Banner from "./Cards";
-const Layout =React.lazy(()=>import("./Layout"))
+const Layout = React.lazy(() => import("./Layout"));
 
 const Data = () => {
   const topRef = React.useRef(null);
@@ -15,9 +15,8 @@ const Data = () => {
       <Main topRef={topRef} />
       <Banner bottomRef={bottomRef} />
       <React.Suspense>
-      <Layout/>
+        <Layout />
       </React.Suspense>
-      
     </>
   );
 };

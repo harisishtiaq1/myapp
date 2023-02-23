@@ -49,22 +49,23 @@ const Holder = styled(Box)(({ roll }) => ({
 }));
 
 const Banner = ({ bottomRef }) => {
-  const myRef=React.useRef();
-  const [ myElement, setMyElement]  = useState();
+  const myRef = React.useRef();
+  const [myElement, setMyElement] = useState();
   console.log("myElement", myElement);
-  React.useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
+  React.useEffect(
+    () => {
+      const observer = new IntersectionObserver((entries) => {
+        const entry = entries[0];
 
-      setMyElement(entry.isIntersecting);
-      if (entry.isIntersecting) observer.unobserve(entry.target); 
-
-    });
-    observer.observe(bottomRef.current);
-
-  },{
-    threshold:1
-  } [bottomRef]);
+        setMyElement(entry.isIntersecting);
+        if (entry.isIntersecting) observer.unobserve(entry.target);
+      });
+      observer.observe(bottomRef.current);
+    },
+    {
+      threshold: 1,
+    }[bottomRef]
+  );
 
   const theme = createTheme();
   const [roll, setRoll] = React.useState(true);
@@ -82,112 +83,112 @@ const Banner = ({ bottomRef }) => {
     }, 500);
   }, []);
   return (
-    <ThemeProvider theme={theme} >
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box ref={bottomRef}>
-      <Box sx={{ textAlign: "center" }} >
-        <Holder roll={myElement ? roll : ""} ref={myRef}>
-          <Typography
-            component="h5"
-            sx={{ color: "#01579b", fontWeight: "bold" }}
-          >
-            CREMA MUI
-          </Typography>
-          <Typography
-            component="h1"
-            variant="h4"
-            sx={{ mt: 2, fontWeight: "bold" }}
-          >
-            Crema MUI is a great kick-starter
-          </Typography>
-        </Holder>
-      </Box>
-      <Hold newRoll={myElement ? newRoll : ""}>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            mt: 20,
-          }}
-        >
-          <Container>
-            <Grid container spacing={3} sx={{ mt: 10 }}>
-              <Grid item xs={12} md={12} sm={12} lg={4}>
-                <Box sx={{ textAlign: "center" }}>
-                  <Box component="img" src={documentation}></Box>
-                  <Typography
-                    variant="h5"
-                    component="h1"
-                    sx={{ textAlign: "center" }}
-                  >
-                    Documentation
-                  </Typography>
-                  <Typography
-                    sx={{ marginTop: 2, textAlign: "center", fontSize: 15 }}
-                  >
-                    Available our detailed document and top call support here.
-                  </Typography>
-                  <Button variant="contained" sx={{ marginTop: 2 }}>
-                    Check Document
-                  </Button>
-                </Box>
-              </Grid>
-              <Grid item xs={12} md={12} sm={12} lg={4}>
-                <Box sx={{ textAlign: "center" }}>
-                  <Box component="img" src={github}></Box>
-                  <Typography
-                    variant="h5"
-                    component="h1"
-                    sx={{ textAlign: "center" }}
-                  >
-                    GitHub
-                  </Typography>
-                  <Typography
-                    sx={{ marginTop: 2, fontSize: 15 }}
-                    component="p"
-                    variant="p"
-                    color="inherit"
-                  >
-                    Get latest feature, make pull request or bug fixes
-                  </Typography>
-                  <Button variant="contained" sx={{ marginTop: 4 }}>
-                    Join on GitHub
-                  </Button>
-                </Box>
-              </Grid>
-              <Grid item xs={12} md={12} sm={12} lg={4}>
-                <Box sx={{ textAlign: "center" }}>
-                  <Box component="img" src={slack}></Box>
-                  <Typography
-                    variant="h5"
-                    component="h1"
-                    sx={{ textAlign: "center" }}
-                  >
-                    Slack
-                  </Typography>
-                  <Typography
-                    component="p"
-                    variant="p"
-                    sx={{
-                      marginTop: 2,
-                      textAlign: "center",
-                      color: "inherit",
-                      fontSize: 15,
-                    }}
-                  >
-                    Share your idea and insights, for inspiration collaboration
-                    and great result.
-                  </Typography>
-                  <Button variant="contained" sx={{ marginTop: 2 }}>
-                    Join Our Community
-                  </Button>
-                </Box>
-              </Grid>
-            </Grid>
-          </Container>
+        <Box sx={{ textAlign: "center" }}>
+          <Holder roll={myElement ? roll : ""} ref={myRef}>
+            <Typography
+              component="h5"
+              sx={{ color: "#01579b", fontWeight: "bold" }}
+            >
+              CREMA MUI
+            </Typography>
+            <Typography
+              component="h1"
+              variant="h4"
+              sx={{ mt: 2, fontWeight: "bold" }}
+            >
+              Crema MUI is a great kick-starter
+            </Typography>
+          </Holder>
         </Box>
-      </Hold>
+        <Hold newRoll={myElement ? newRoll : ""}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              mt: 20,
+            }}
+          >
+            <Container>
+              <Grid container spacing={3} sx={{ mt: 10 }}>
+                <Grid item xs={12} md={12} sm={12} lg={4}>
+                  <Box sx={{ textAlign: "center" }}>
+                    <Box component="img" src={documentation}></Box>
+                    <Typography
+                      variant="h5"
+                      component="h1"
+                      sx={{ textAlign: "center" }}
+                    >
+                      Documentation
+                    </Typography>
+                    <Typography
+                      sx={{ marginTop: 2, textAlign: "center", fontSize: 15 }}
+                    >
+                      Available our detailed document and top call support here.
+                    </Typography>
+                    <Button variant="contained" sx={{ marginTop: 2 }}>
+                      Check Document
+                    </Button>
+                  </Box>
+                </Grid>
+                <Grid item xs={12} md={12} sm={12} lg={4}>
+                  <Box sx={{ textAlign: "center" }}>
+                    <Box component="img" src={github}></Box>
+                    <Typography
+                      variant="h5"
+                      component="h1"
+                      sx={{ textAlign: "center" }}
+                    >
+                      GitHub
+                    </Typography>
+                    <Typography
+                      sx={{ marginTop: 2, fontSize: 15 }}
+                      component="p"
+                      variant="p"
+                      color="inherit"
+                    >
+                      Get latest feature, make pull request or bug fixes
+                    </Typography>
+                    <Button variant="contained" sx={{ marginTop: 4 }}>
+                      Join on GitHub
+                    </Button>
+                  </Box>
+                </Grid>
+                <Grid item xs={12} md={12} sm={12} lg={4}>
+                  <Box sx={{ textAlign: "center" }}>
+                    <Box component="img" src={slack}></Box>
+                    <Typography
+                      variant="h5"
+                      component="h1"
+                      sx={{ textAlign: "center" }}
+                    >
+                      Slack
+                    </Typography>
+                    <Typography
+                      component="p"
+                      variant="p"
+                      sx={{
+                        marginTop: 2,
+                        textAlign: "center",
+                        color: "inherit",
+                        fontSize: 15,
+                      }}
+                    >
+                      Share your idea and insights, for inspiration
+                      collaboration and great result.
+                    </Typography>
+                    <Button variant="contained" sx={{ marginTop: 2 }}>
+                      Join Our Community
+                    </Button>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Container>
+          </Box>
+        </Hold>
       </Box>
     </ThemeProvider>
   );
