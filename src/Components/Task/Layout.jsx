@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import image from "./img/image.png";
 import {
   CardMedia,
@@ -12,13 +13,55 @@ import {
   Container,
   Grid,
   Box,
+  Slide,
+  keyframes
 } from "@mui/material";
+import { styled } from "@mui/system";
+const slideTop = keyframes`
+0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+            opacity:0;
+  }
+  100% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+            opacity:1;
+  }`;
+const Holder = styled(Box)(({ roll }) => ({
+  visibility: !roll && "hidden",
+  animation: roll && `${slideTop} 1s ease-out both`,
+}));
 const Banner2 = () => {
   const theme = createTheme();
+  const myRef=React.useRef();
+  const [ myElement, setMyElement]  = useState();
+  console.log("myElement", myElement);
+  React.useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+
+      setMyElement(entry.isIntersecting);
+      if (entry.isIntersecting) observer.unobserve(entry.target); 
+
+    });
+    observer.observe(myRef.current);
+
+  },{
+    threshold:1
+  } [myRef]);
+  
+  const [roll, setRoll] = React.useState(true);
+  React.useEffect(() => {
+    setTimeout(() => {
+      setRoll(true);
+    }, 500);
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container>
+        
         <Grid
           container
           spacing={2}
@@ -31,7 +74,13 @@ const Banner2 = () => {
             },
           }}
         >
-          <Grid xs={12} lg={8}>
+          <Grid xs={12} lg={8} sx={{
+            mt: {
+              xs:10,
+              md:3
+            },
+          }}>
+          <Holder roll={myElement ? roll : ""} ref={myRef}>
             <Card sx={{ marginTop: 5 }}>
               <CardMedia
                 sx={{ width: "100%", width: 1000, height: 400 }}
@@ -48,6 +97,7 @@ const Banner2 = () => {
                 </Typography>
               </CardContent>
             </Card>
+            </Holder>
             <Card sx={{ marginTop: 5 }}>
               <CardMedia
                 sx={{ width: "100%", width: 1000, height: 400 }}
@@ -227,7 +277,6 @@ const Banner2 = () => {
             <Typography
               sx={{
                 marginLeft: 5,
-                mt: 7,
                 mb: 0,
                 fontWeight: "bold",
                 color: "#0090F1",

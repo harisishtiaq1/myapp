@@ -53,17 +53,18 @@ const Banner = ({ bottomRef }) => {
   const [ myElement, setMyElement]  = useState();
   console.log("myElement", myElement);
   React.useEffect(() => {
-    console.log("in observer useEffect")
-    console.log("in observer useEffect")
-    console.log("in observer useEffect")
-    console.log(myRef)
-      const observer = new IntersectionObserver((entries) => {
-        const entry = entries[0];
-        setMyElement(entry.isIntersecting);
-        if (entry.isIntersecting) observer.unobserve(entry.target);
-      });
-      observer.observe(myRef.current);
-  }, [myRef]);
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+
+      setMyElement(entry.isIntersecting);
+      if (entry.isIntersecting) observer.unobserve(entry.target); 
+
+    });
+    observer.observe(bottomRef.current);
+
+  },{
+    threshold:1
+  } [bottomRef]);
 
   const theme = createTheme();
   const [roll, setRoll] = React.useState(true);
@@ -73,17 +74,17 @@ const Banner = ({ bottomRef }) => {
       setRoll(true);
     }, 500);
   }, []);
-  
   const [newRoll, setRoll1] = React.useState(true);
+
   React.useEffect(() => {
     setTimeout(() => {
       setRoll1(true);
     }, 500);
   }, []);
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme} >
       <CssBaseline />
-
+      <Box ref={bottomRef}>
       <Box sx={{ textAlign: "center" }} >
         <Holder roll={myElement ? roll : ""} ref={myRef}>
           <Typography
@@ -187,6 +188,7 @@ const Banner = ({ bottomRef }) => {
           </Container>
         </Box>
       </Hold>
+      </Box>
     </ThemeProvider>
   );
 };
