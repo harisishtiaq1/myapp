@@ -9,6 +9,8 @@ import {
   Typography,
   keyframes,
 } from "@mui/material";
+import { useRef, useState } from "react";
+import { useInView } from "react-intersection-observer";
 import React from "react";
 import documentation from "./img/documentation.svg";
 import slack from "./img/slack.svg";
@@ -47,6 +49,22 @@ const Holder = styled(Box)(({ roll }) => ({
 }));
 
 const Banner = ({ bottomRef }) => {
+  const myRef=React.useRef();
+  const [ myElement, setMyElement]  = useState();
+  console.log("myElement", myElement);
+  React.useEffect(() => {
+    console.log("in observer useEffect")
+    console.log("in observer useEffect")
+    console.log("in observer useEffect")
+    console.log(myRef)
+      const observer = new IntersectionObserver((entries) => {
+        const entry = entries[0];
+        setMyElement(entry.isIntersecting);
+        if (entry.isIntersecting) observer.unobserve(entry.target);
+      });
+      observer.observe(myRef.current);
+  }, [myRef]);
+
   const theme = createTheme();
   const [roll, setRoll] = React.useState(true);
 
@@ -55,8 +73,8 @@ const Banner = ({ bottomRef }) => {
       setRoll(true);
     }, 500);
   }, []);
+  
   const [newRoll, setRoll1] = React.useState(true);
-
   React.useEffect(() => {
     setTimeout(() => {
       setRoll1(true);
@@ -66,8 +84,8 @@ const Banner = ({ bottomRef }) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      <Box sx={{ textAlign: "center" }} ref={bottomRef}>
-        <Holder roll={roll}>
+      <Box sx={{ textAlign: "center" }} >
+        <Holder roll={myElement ? roll : ""} ref={myRef}>
           <Typography
             component="h5"
             sx={{ color: "#01579b", fontWeight: "bold" }}
@@ -83,7 +101,7 @@ const Banner = ({ bottomRef }) => {
           </Typography>
         </Holder>
       </Box>
-      <Hold newRoll={newRoll}>
+      <Hold newRoll={myElement ? newRoll : ""}>
         <Box
           sx={{
             display: "flex",
@@ -93,7 +111,7 @@ const Banner = ({ bottomRef }) => {
           }}
         >
           <Container>
-            <Grid container spacing={3}>
+            <Grid container spacing={3} sx={{ mt: 10 }}>
               <Grid item xs={12} md={12} sm={12} lg={4}>
                 <Box sx={{ textAlign: "center" }}>
                   <Box component="img" src={documentation}></Box>
