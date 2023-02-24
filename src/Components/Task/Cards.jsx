@@ -9,8 +9,7 @@ import {
   Typography,
   keyframes,
 } from "@mui/material";
-import { useRef, useState } from "react";
-import { useInView } from "react-intersection-observer";
+import { useState } from "react";
 import React from "react";
 import documentation from "./img/documentation.svg";
 import slack from "./img/slack.svg";
@@ -66,6 +65,23 @@ const Banner = ({ bottomRef }) => {
       threshold: 1,
     }[bottomRef]
   );
+  const myRef1 = React.useRef();
+  const [myElement1, setMyElement1] = useState();
+  console.log("myElement", myElement1);
+  React.useEffect(
+    () => {
+      const observer = new IntersectionObserver((entries) => {
+        const entry = entries[0];
+
+        setMyElement1(entry.isIntersecting);
+        if (entry.isIntersecting) observer.unobserve(entry.target);
+      });
+      observer.observe(myRef1.current);
+    },
+    {
+      threshold: 1,
+    }[myRef1]
+  );
 
   const theme = createTheme();
   const [roll, setRoll] = React.useState(true);
@@ -103,7 +119,7 @@ const Banner = ({ bottomRef }) => {
             </Typography>
           </Holder>
         </Box>
-        <Hold newRoll={myElement ? newRoll : ""}>
+        <Hold newRoll={myElement1 ? newRoll : ""} ref={myRef1}>
           <Box
             sx={{
               display: "flex",
