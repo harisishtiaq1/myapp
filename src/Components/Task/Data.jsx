@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Main from "./DashBoard";
 import Banner from "./Cards";
-const Layout = React.lazy(() => import("./Layout"));
+import Layout from "./Layout";
 
 const Data = () => {
   const topRef = React.useRef(null);
@@ -14,9 +14,7 @@ const Data = () => {
       <Navbar executeScroll={executeScroll} executeScroll1={executeScroll1} />
       <Main topRef={topRef} />
       <Banner bottomRef={bottomRef} />
-      <React.Suspense>
-        <Layout />
-      </React.Suspense>
+      <Layout />
     </>
   );
 };
