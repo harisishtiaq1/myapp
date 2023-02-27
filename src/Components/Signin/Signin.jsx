@@ -1,39 +1,37 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { useNavigate } from 'react-router-dom';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { useNavigate } from "react-router-dom";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme();
 export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-      name:data.get('Name'),
+      email: data.get("email"),
+      password: data.get("password"),
+      name: data.get("Name"),
     });
   };
-const nevigate=useNavigate();
+  const nevigate = useNavigate();
 
-const signup=()=>{
-  let path="/signup"
-  nevigate(path)
-}
-const forget=()=>{
-  let path="/forget"
-  nevigate(path)
-}
+  const signup = () => {
+    let path = "/signup";
+    nevigate(path);
+  };
+  const forget = () => {
+    let path = "/forget";
+    nevigate(path);
+  };
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -41,15 +39,20 @@ const forget=()=>{
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+            sx={{ mt: 1 }}
+          >
             <TextField
               margin="normal"
               required
@@ -71,13 +74,13 @@ const forget=()=>{
               autoComplete="current-password"
             />
             <TextField
-            margin='normal'
-            required
-            fullWidth
-            name="Name"
-            label="Name"
-            type="text"
-            autoComplete="current-Name"
+              margin="normal"
+              required
+              fullWidth
+              name="Name"
+              label="Name"
+              type="text"
+              autoComplete="current-Name"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -93,12 +96,12 @@ const forget=()=>{
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2" onClick={()=>forget()}>
+                <Link href="#" variant="body2" onClick={() => forget()}>
                   Forgot password?
                 </Link>
               </Grid>
-              <Grid item >
-                <Link href="#" variant="body2" onClick={()=>signup()}>
+              <Grid item>
+                <Link href="#" variant="body2" onClick={() => signup()}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
@@ -109,4 +112,3 @@ const forget=()=>{
     </ThemeProvider>
   );
 }
-
