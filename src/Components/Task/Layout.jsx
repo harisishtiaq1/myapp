@@ -50,7 +50,6 @@ const Banner2 = () => {
       threshold: 1,
     }[myRef]
   );
-
   const [roll, setRoll] = React.useState(true);
   React.useEffect(() => {
     setTimeout(() => {
@@ -322,5 +321,6 @@ const Banner2 = () => {
     </ThemeProvider>
   );
 };
+
 
 export default Banner2;
