@@ -13,7 +13,6 @@ import {
   Container,
   Grid,
   Box,
-  Slide,
   keyframes,
 } from "@mui/material";
 import { styled } from "@mui/system";
