@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Box, Container, Button, TextField } from "@mui/material";
-import { Form } from "react-bootstrap";
+import {
+  Box,
+  Container,
+  Button,
+  TextField,
+  Grid,
+  Typography,
+} from "@mui/material";
 
 const App = () => {
   const [myData, setMyData] = useState([]);
@@ -9,7 +15,6 @@ const App = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
-  // using Async Await
   const getMyPostData = async () => {
     try {
       const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
@@ -19,7 +24,6 @@ const App = () => {
     }
   };
 
-  // NOTE:  calling the function
   useEffect(() => {
     getMyPostData();
   }, []);
@@ -30,16 +34,18 @@ const App = () => {
         title,
         body,
       })
-      .then((res) => console.log(title))
+      .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
   return (
     <>
-      <h1>Axios Tutorial</h1>
-      {isError !== "" && <h2>{isError}</h2>}
-
       <Container>
-        <Form>
+        <Typography variant="h5" component="h1">
+          Axios Post and Get data
+        </Typography>
+        {isError !== "" && <h2>{isError}</h2>}
+
+        <Grid container item xs={8}>
           <Box
             sx={{ display: "flex", flexDirection: "column", mt: 2, padding: 2 }}
           >
@@ -54,19 +60,19 @@ const App = () => {
               id="body"
               onChange={(e) => setBody(e.target.value)}
             ></TextField>
-            <Button onClick={postData} sx={{ mt: 2 }}>
+            <Button variant="contained" onClick={postData} sx={{ mt: 2 }}>
               Post Data
             </Button>
           </Box>
-        </Form>
+        </Grid>
       </Container>
       <div className="grid">
-        {myData.slice(0, 9).map((post) => {
+        {myData.map((post) => {
           const { body, id, title } = post;
           return (
             <div key={id} className="card">
-              <h2>{title.slice(0, 15).toUpperCase()}</h2>
-              <p>{body.slice(0, 100)}</p>
+              <h2>{title.toUpperCase()}</h2>
+              <p>{body}</p>
             </div>
           );
         })}
