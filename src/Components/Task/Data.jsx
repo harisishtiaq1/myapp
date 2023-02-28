@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Main from "./DashBoard";
 import Banner from "./Cards";
 import Layout from "./Layout";
+import Index from "./index"
 
 const Data = () => {
   const topRef = React.useRef(null);
@@ -10,12 +11,13 @@ const Data = () => {
   const bottomRef = React.useRef(null);
   const executeScroll1 = () => bottomRef.current.scrollIntoView();
   return (
-    <>
-      <Navbar executeScroll={executeScroll} executeScroll1={executeScroll1} />
-      <Main topRef={topRef} />
-      <Banner bottomRef={bottomRef} />
-      <Layout />
-    </>
+    // <>
+    //   <Navbar executeScroll={executeScroll} executeScroll1={executeScroll1} />
+    //   <Main topRef={topRef} />
+    //   <Banner bottomRef={bottomRef} />
+    //   <Layout />
+    // </>
+    <Index/>
   );
 };
 export default Data;
