@@ -25,12 +25,12 @@ export default function Material() {
     });
   };
   const theme = createTheme();
-  const nevigate = useNavigate();
+  // const nevigate = useNavigate();
 
-  const signin = () => {
-    let path = "/signin";
-    nevigate(path);
-  };
+  // const signin = () => {
+  //   let path = "/signin";
+  //   nevigate(path);
+  // };
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">

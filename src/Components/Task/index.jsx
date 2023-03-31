@@ -19,11 +19,22 @@ const App = () => {
     try {
       const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
       setMyData(res.data);
+      console.log("data here", res.data);
     } catch (error) {
       setIsError(error.message);
     }
   };
 
+  const handleData = (event) => {
+    let temp = {
+      title: title,
+      body: body,
+    };
+    let newArray = [...myData];
+    newArray.push(temp);
+    setMyData(newArray, );
+    console.log("onSubmit", myData);
+  };
   useEffect(() => {
     getMyPostData();
   }, []);
@@ -60,7 +71,11 @@ const App = () => {
               id="body"
               onChange={(e) => setBody(e.target.value)}
             ></TextField>
-            <Button variant="contained" onClick={postData} sx={{ mt: 2 }}>
+            <Button
+              variant="contained"
+              onClick={(event) => handleData(event)}
+              sx={{ mt: 2 }}
+            >
               Post Data
             </Button>
           </Box>
@@ -68,9 +83,9 @@ const App = () => {
       </Container>
       <div className="grid">
         {myData.map((post) => {
-          const { body, id, title } = post;
+          const { body, title } = post;
           return (
-            <div key={id} className="card">
+            <div className="card">
               <h2>{title.toUpperCase()}</h2>
               <p>{body}</p>
             </div>

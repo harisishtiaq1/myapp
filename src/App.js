@@ -4,11 +4,12 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Data from "./Components/Task/Data"
+import Material from './Components/Material/Material';
 function App() {
 
   return (
   <>
-  <Data/>
+  <Material/>
   </>
   );
 }
